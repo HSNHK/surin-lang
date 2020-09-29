@@ -1,0 +1,46 @@
+##########################################
+###				       ###
+###				       ###
+###		Surin Lang 	       ###
+###		Documents	       ###
+###		2020-09-29	       ###
+###	    By Hasan Mohammadi         ###
+###                                    ###
+###				       ###
+##########################################
+
+
+
+
+
+
+surin is an interpreter language written in golang or python
+This means that its structure can be implemented in other languages.
+There are a few basic concepts in the construction of interpretive programming languages that I will describe here.
+
+(interpreters)
+
+An article on language interpreters on Wikipedia
+
+In computer science, an interpreter is a computer program that directly executes instructions written in a programming or scripting language,
+without requiring them previously to have been compiled into a machine language program.
+An interpreter generally uses one of the following strategies for program execution:
+
+Parse the source code and perform its behavior directly;
+Translate source code into some efficient intermediate representation and immediately execute this;
+Explicitly execute stored precompiled code made by a compiler which is part of the interpreter system.
+Early versions of Lisp programming language and minicomputer and microcomputer BASIC dialects would be examples of the first type.
+Perl, Python, MATLAB, and Ruby are examples of the second, while UCSD Pascal is an example of the third type.
+Source programs are compiled ahead of time and stored as machine independent code,
+which is then linked at run-time and executed by an interpreter and/or compiler (for JIT systems).
+Some systems, such as Smalltalk and contemporary versions of BASIC and Java may also combine two and three.
+Interpreters of various types have also been constructed for many languages traditionally associated with compilation,
+such as Algol, Fortran, Cobol, C and C++.
+
+While interpretation and compilation are the two main means by which programming languages are implemented,
+they are not mutually exclusive, as most interpreting systems also perform some translation work, just like compilers.
+The terms "interpreted language" or "compiled language" signify that the canonical implementation of that language is an interpreter or a compiler,
+respectively. A high level language is ideally an abstraction independent of particular implementations.
+
+In the above, you found that the interpreter is a program that receives the code as input and executes it directly,
+and unlike compilers, the code is not translated into another language.
