@@ -1,6 +1,8 @@
 ## Surin Lang
 
-<img src="https://github.com/HSNHK/surin-lang/blob/master/resources/logo.png" style="width:25px;height:25px">
+<img src="https://github.com/HSNHK/surin-lang/blob/master/resources/logo.png" width="300" >
+<br>
+<b>Surin programming language</b>
 
 surin is an interpreter language written in golang or python
 <br>
