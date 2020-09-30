@@ -44,3 +44,27 @@ respectively. A high level language is ideally an abstraction independent of par
 
 In the above, you found that the interpreter is a program that receives the code as input and executes it directly,
 and unlike compilers, the code is not translated into another language.
+
+
+Description of language structure
+
+The file extension is .sur
+This means that the code must be stored in this file for interpretation.
+The following command is used to interpret the file:
+
+Command : surin filename.sur
+
+And to open the interpreter directly, just run the executable file.
+
+
+
+You will encounter this page while running
+
+   _____            _          __
+  / ___/__  _______(_)___     / /   ____ _____  ____ _
+  \__ \/ / / / ___/ / __ \   / /   / __ `/ __ \/ __ `/
+ ___/ / /_/ / /  / / / / /  / /___/ /_/ / / / / /_/ /
+/____/\__,_/_/  /_/_/ /_/  /_____/\__,_/_/ /_/\__, /
+                                             /____/
+Hello Welcome to surin interpreter
+
