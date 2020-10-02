@@ -1,11 +1,14 @@
 package main
 
 import (
+	"./parser"
 	"bufio"
 	"fmt"
 	"log"
 	"os"
 )
+
+
 func main(){
 	input:=os.Args
 	if len(input)>1{
@@ -15,7 +18,7 @@ func main(){
 		}
 		fileScan :=bufio.NewScanner(file)
 		for fileScan.Scan(){
-			fmt.Println(fileScan.Text())
+			parser.Core(fileScan.Text())
 		}
 		if err:= fileScan.Err();err!=nil{
 			log.Fatal(fmt.Sprintf("[%s]",err))
@@ -37,6 +40,7 @@ func main(){
 		fmt.Println("                                             /____/")
 		fmt.Println("Hello Welcome to surin interpreter\n")
 
+
 		var userCommand string
 		for true {
 
@@ -48,11 +52,11 @@ func main(){
 					fmt.Println(value)
 				}
 			}
-
 			if userCommand=="exit()"{
 				break
+			}else{
+				parser.Core(userCommand)
 			}
-
 		}
 	}
 }
