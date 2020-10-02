@@ -19,11 +19,15 @@ surin file.sur
 ## syntax
 
 ```
-print("hello")
-print(1234)
-logic(3,>=,2)
-math(2,**,4)
-streql("test","test")
+print("hello") #print string
+
+print(1234)    #print int
+
+logic(3,>=,2)  #logic functions (>,<,<=,>=,==)
+
+math(2,**,4)   #math  functions (+,-,*,/,**)
+
+streql("test","test") #Equality of two disciplines math(str1,str2)
 
 ``` 
 ## Documents
