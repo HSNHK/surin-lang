@@ -15,6 +15,10 @@ This means that its structure can be implemented in other languages.
 
 surin file.sur
 
+or 
+
+>>~#> code...
+
 ```
 ## syntax
 
