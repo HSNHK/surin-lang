@@ -8,7 +8,9 @@ import (
 	"os"
 )
 
+func Test(){
 
+}
 func main(){
 	input:=os.Args
 	if len(input)>1{
@@ -50,6 +52,7 @@ func main(){
 			for key,value:=range command{
 				if userCommand==key{
 					fmt.Println(value)
+					break
 				}
 			}
 			if userCommand=="exit()"{
