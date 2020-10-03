@@ -33,6 +33,8 @@ math(2,**,4)   #math  functions (+,-,*,/,**)
 
 streql("test","test") #Equality of two disciplines math(str1,str2)
 
+len("hello programer") #string len function
+
 ``` 
 ## Documents
 
