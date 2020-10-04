@@ -8,9 +8,6 @@ import (
 	"os"
 )
 
-func Test(){
-
-}
 func main(){
 	input:=os.Args
 	if len(input)>1{
