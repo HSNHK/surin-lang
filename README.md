@@ -18,6 +18,16 @@ In the code analysis section,<br>
 if it matches the specified patterns,<br>
 it will be executed<br>
 
+Regexis used to analyze the code,
+and each command has a pattern.
+For example, the print command has a pattern like this:
+
+```
+
+print("Hello world")
+^[(print)|(\sprint)|(print\s)]+[(]+["].*["]+[)]$
+
+```
 ## How to use it?
 
 ```
