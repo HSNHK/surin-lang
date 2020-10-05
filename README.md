@@ -8,6 +8,15 @@ surin is an interpreter language written in golang or python
 <br>
 This means that its structure can be implemented in other languages.
 
+### instruction
+```
+
+code --> analyze code --> interpreter functions
+
+```
+In the code analysis section,<br>
+if it matches the specified patterns,<br>
+it will be executed<br>
 
 ## How to use it?
 
