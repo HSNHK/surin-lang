@@ -1,13 +1,12 @@
 ## Surin Lang
 
-<img src="https://github.com/HSNHK/surin-lang/blob/master/resources/logo.png" width="300" >
-<br>
+<img src="https://github.com/HSNHK/surin-lang/blob/master/resources/logo.png" width="250" >
 <b>Surin programming language</b>
 
 surin is an interpreter language written in golang or python
 <br>
-This means that its structure can be implemented in other languages.
-
+This means that its structure can be implemented in other languages.<br>
+In practice, this language is just a structure and more work has been done on its structure
 ### instruction
 ```
 
