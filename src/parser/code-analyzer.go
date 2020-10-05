@@ -11,7 +11,7 @@ import (
 func Core(code string){
 
 	pattern:=map[string]string{
-		"print":"^[(print)|(\\sprint)|(print\\s)]+[(]+[\"].*[\"]+[)]$",
+		"print":"^[(print)]+[(]+[\"].*[\"]+[)]$",
 		"print_int":"^[(print)|(\\sprint)|(print\\s)]+[(][\\d]+[)]$",
 		"logic":"^[(logic)|(\\slogic)|(logic\\s)]+[(]+[\\d]+[,]+[(>)|(<)|(>=)|(<=)]+[,][0-9]+[)]$",
 		"math":"^[(math)|(\\smath)|(math\\s)]+[(]+[\\d]+[,]+(\\+|\\-|\\*|\\/)+[,]+[\\d]+[)]|[)]\\s$",
