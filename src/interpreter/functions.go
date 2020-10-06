@@ -2,6 +2,7 @@ package interpreter
 
 import (
 	"fmt"
+	"strings"
 )
 
 //system functions
@@ -17,4 +18,9 @@ func DataLen(value string)int{
 	return len(value)
 }
 
-
+func Find(value1,value2 string)bool{
+	if strings.Contains(value1,value2){
+		return true
+	}
+	return false
+}
