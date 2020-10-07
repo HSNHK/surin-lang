@@ -55,6 +55,18 @@ len("hello programer") #string len function
 
 find("hello","he") #find string to string
 
+[*]stack
+
+var(variableName) #create variables
+
+push("variableName",value) #push to variable
+
+pop(variableName) #get variable value
+
+rm(variableName) #delete variable in stack
+
+add(variableName,value) #add value to variable | +=
+
 ``` 
 ## Documents
 
