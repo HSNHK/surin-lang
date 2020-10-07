@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func Core(code string){
+func Core(code string,stack *map[string]interface{}){
 
 	if IsValid("print",code){
 		interpreter.Print(code[7:len(code)-2], "str")
@@ -47,5 +47,25 @@ func Core(code string){
 		codeSplit:=strings.Split(code,",")
 		fmt.Println(interpreter.Find(strings.TrimSpace(codeSplit[0][6:len(codeSplit[0])-1]),
 			strings.TrimSpace(codeSplit[1][1:len(codeSplit[1])-2])))
+
+	}else if IsValid("var",code) {
+		interpreter.CreateVariable(code[4:len(code)-1],stack)
+
+	}else if IsValid("push_str",code){
+		codeSplit:=strings.Split(code,",")
+		interpreter.PushStack(codeSplit[0][6:len(codeSplit[0])-1],
+			codeSplit[1][1:len(codeSplit[1])-2],stack)
+
+	}else if IsValid("push_int",code){
+		codeSplit:=strings.Split(code,",")
+		interpreter.PushStack(codeSplit[0][6:len(codeSplit[0])-1],
+			codeSplit[1][:len(codeSplit[1])-1],stack)
+
+	} else if IsValid("pop",code){
+		fmt.Println(interpreter.GetValue(code[4:len(code)-1],stack))
+	}else if IsValid("rm",code){
+		if interpreter.DeleteVariable(code[3:len(code)-1],stack)!=true{
+			fmt.Println("not found variable!")
+		}
 	}
 }

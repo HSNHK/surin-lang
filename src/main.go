@@ -8,6 +8,10 @@ import (
 	"os"
 )
 
+var stack=map[string]interface{}{
+	"test":"hello stack",
+}
+
 func main(){
 	input:=os.Args
 	if len(input)>1{
@@ -17,7 +21,7 @@ func main(){
 		}
 		fileScan :=bufio.NewScanner(file)
 		for fileScan.Scan(){
-			parser.Core(fileScan.Text())
+			parser.Core(fileScan.Text(),&stack)
 		}
 		if err:= fileScan.Err();err!=nil{
 			log.Fatal(fmt.Sprintf("[%s]",err))
@@ -55,7 +59,7 @@ func main(){
 			if userCommand=="exit()"{
 				break
 			}else{
-				parser.Core(userCommand)
+				parser.Core(userCommand,&stack)
 			}
 		}
 	}
