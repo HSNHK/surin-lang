@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func Core(code string,stack *map[string]interface{}){
+func Core(code string,stack *map[string][]interface{}){
 
 	if IsValid("print",code){
 		interpreter.Print(code[7:len(code)-2], "str")
@@ -48,24 +48,55 @@ func Core(code string,stack *map[string]interface{}){
 		fmt.Println(interpreter.Find(strings.TrimSpace(codeSplit[0][6:len(codeSplit[0])-1]),
 			strings.TrimSpace(codeSplit[1][1:len(codeSplit[1])-2])))
 
-	}else if IsValid("var",code) {
-		interpreter.CreateVariable(code[4:len(code)-1],stack)
+	}else if IsValid("var_str",code) {
 
-	}else if IsValid("push_str",code){
+		interpreter.CreateVariable(code[4:len(code)-5],"str",stack)
+
+	}else if IsValid("var_int",code){
+		interpreter.CreateVariable(code[4:len(code)-5],"int",stack)
+
+	} else if IsValid("push_str",code){
 		codeSplit:=strings.Split(code,",")
-		interpreter.PushStack(codeSplit[0][6:len(codeSplit[0])-1],
-			codeSplit[1][1:len(codeSplit[1])-2],stack)
+		if interpreter.ExistVariable(codeSplit[0][6:len(codeSplit[0])-1],stack){
+			interpreter.PushStack(codeSplit[0][6:len(codeSplit[0])-1],"str",
+				codeSplit[1][1:len(codeSplit[1])-2],stack)
+		}else{
+			fmt.Println("push str : not found variable")
+		}
 
 	}else if IsValid("push_int",code){
 		codeSplit:=strings.Split(code,",")
-		interpreter.PushStack(codeSplit[0][6:len(codeSplit[0])-1],
-			codeSplit[1][:len(codeSplit[1])-1],stack)
+		if interpreter.ExistVariable(codeSplit[0][6:len(codeSplit[0])-1],stack){
+			interpreter.PushStack(codeSplit[0][6:len(codeSplit[0])-1],"int",
+				codeSplit[1][:len(codeSplit[1])-1],stack)
+		}else{
+			fmt.Println("push int : not found variable")
+		}
 
 	} else if IsValid("pop",code){
-		fmt.Println(interpreter.GetValue(code[4:len(code)-1],stack))
+		if interpreter.ExistVariable(code[4:len(code)-1],stack) {
+			fmt.Println(interpreter.GetValue(code[4:len(code)-1], stack))
+		}else{
+			fmt.Println("pop : not found variable")
+		}
+
 	}else if IsValid("rm",code){
 		if interpreter.DeleteVariable(code[3:len(code)-1],stack)!=true{
 			fmt.Println("not found variable!")
+		}
+	}else if IsValid("add_int",code){
+		codeSplit:=strings.Split(code,",")
+		if interpreter.ExistVariable(codeSplit[0][5:len(codeSplit[0])-1],stack) {
+			interpreter.AddToVariable(codeSplit[0][5:len(codeSplit[0])-1], "int", codeSplit[1][:len(codeSplit[1])-1], stack)
+		}else{
+			fmt.Println("add int : not found variable")
+		}
+	}else if IsValid("add_str",code){
+		codeSplit:=strings.Split(code,",")
+		if interpreter.ExistVariable(codeSplit[0][5:len(codeSplit[0])-1],stack) {
+			interpreter.AddToVariable(codeSplit[0][5:len(codeSplit[0])-1], "str", codeSplit[1][1:len(codeSplit[1])-2], stack)
+		}else{
+			fmt.Println("add str : not found variable")
 		}
 	}
 }

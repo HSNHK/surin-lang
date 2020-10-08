@@ -8,11 +8,12 @@ import (
 	"os"
 )
 
-var stack=map[string]interface{}{
-	"test":"hello stack",
+var stack=map[string][]interface{}{
+	"first":{"type","value","id"},
 }
 
 func main(){
+
 	input:=os.Args
 	if len(input)>1{
 		file,err:=os.Open(input[1])
@@ -21,6 +22,9 @@ func main(){
 		}
 		fileScan :=bufio.NewScanner(file)
 		for fileScan.Scan(){
+			if fileScan.Text()[0]== '#' {
+				continue
+			}
 			parser.Core(fileScan.Text(),&stack)
 		}
 		if err:= fileScan.Err();err!=nil{

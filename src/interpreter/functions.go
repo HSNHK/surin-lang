@@ -2,6 +2,8 @@ package interpreter
 
 import (
 	"fmt"
+	"math/rand"
+	"strconv"
 	"strings"
 )
 
@@ -23,20 +25,24 @@ func Find(value1,value2 string)bool{
 	}
 	return false
 }
-func PushStack(VariableName string,Data interface{}, stackMap *map[string]interface{}){
-	var stack map[string]interface{}=*stackMap
-	stack[VariableName]=Data
+func PushStack(VariableName,_type string,Data interface{}, stackMap *map[string][]interface{}){
+	var stack map[string][]interface{}=*stackMap
+	stack[VariableName][0]=_type
+	stack[VariableName][1]=Data
 }
-func CreateVariable(VariableName string,stackMap *map[string]interface{}){
-	var stack map[string]interface{}=*stackMap
-	stack[VariableName]="nil"
+func CreateVariable(VariableName,_type string,stackMap *map[string][]interface{}){
+	var stack map[string][]interface{}=*stackMap
+	stack[VariableName]=[]interface{}{nil,nil,nil}
+	stack[VariableName][0]=_type
+	stack[VariableName][1]=nil
+	stack[VariableName][2]=rand.Int()
 }
-func GetValue(VariableName string,stackMap *map[string]interface{})interface{}{
-	var stack map[string]interface{}=*stackMap
-	return stack[VariableName]
+func GetValue(VariableName string,stackMap *map[string][]interface{})interface{}{
+	var stack map[string][]interface{}=*stackMap
+	return stack[VariableName][1]
 }
-func ExistVariable(VariableName string,stackMap *map[string]interface{})bool{
-	var stack map[string]interface{}=*stackMap
+func ExistVariable(VariableName string,stackMap *map[string][]interface{})bool{
+	var stack map[string][]interface{}=*stackMap
 	for key:=range stack{
 		if key==VariableName{
 			return true
@@ -44,8 +50,8 @@ func ExistVariable(VariableName string,stackMap *map[string]interface{})bool{
 	}
 	return false
 }
-func DeleteVariable(VariableName string,stackMap *map[string]interface{})bool{
-	var stack map[string]interface{}=*stackMap
+func DeleteVariable(VariableName string,stackMap *map[string][]interface{})bool{
+	var stack map[string][]interface{}=*stackMap
 	for key:=range stack{
 		if key==VariableName{
 			delete(stack,VariableName)
@@ -54,7 +60,19 @@ func DeleteVariable(VariableName string,stackMap *map[string]interface{})bool{
 	}
 	return false
 }
-func AddToVariable(VariableName string,Data interface{}, stackMap *map[string]interface{}){
-	var stack map[string]interface{}=*stackMap
-	stack[VariableName]=fmt.Sprintf("%s+%s",stack[VariableName],Data)
+func AddToVariable(VariableName, _type string,Data interface{},stackMap *map[string][]interface{}) {
+	var stack map[string][]interface{}=*stackMap
+	if _type=="str"{
+		stack[VariableName][0]=_type
+		stack[VariableName][1]= stack[VariableName][1].(string)+Data.(string)
+	}else if _type=="int"{
+		stack[VariableName][0]=_type
+		x,err:=strconv.Atoi(stack[VariableName][1].(string))
+		y,err:=strconv.Atoi(Data.(string))
+		if err ==nil{
+			stack[VariableName][1]= y + x
+		}else{
+			fmt.Println(err)
+		}
+	}
 }
