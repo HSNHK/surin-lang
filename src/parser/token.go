@@ -65,7 +65,7 @@ func IsExistPattern(PTN string)bool{
 	}
 	return false
 }
-//return all pattern count
+//return the number of all patterns
 func PatternLen()int{
 	return  len(pattern)
 
