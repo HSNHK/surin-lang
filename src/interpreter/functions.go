@@ -90,3 +90,23 @@ func AddToVariable(VariableName, _type string,Data interface{},stackMap *map[str
 		}
 	}
 }
+
+func Type(VariableName string, stackMap *map[string][]interface{}) interface{} {
+	var stack map[string][]interface{}=*stackMap
+	for key:=range stack{
+		if key==VariableName{
+			return stack[VariableName][0]
+		}
+	}
+	return nil
+}
+
+func Id(VariableName string, stackMap *map[string][]interface{}) interface{} {
+	var stack map[string][]interface{}=*stackMap
+	for key:=range stack{
+		if key==VariableName{
+			return stack[VariableName][2]
+		}
+	}
+	return nil
+}

@@ -46,6 +46,12 @@ var(
 		"add_int":"^[(add)|(\\sadd)|(add\\s)]+[(]+[\"].*[\"]+[\\,]+[0-9]+[)]$",
 		//add(variable-name,"string value")
 		"add_str":"^[(add)|(\\sadd)|(add\\s)]+[(]+[\"].*[\"]+[\\,]+[\"].*[\"]+[)]$",
+		//show variable type
+		//type(variable-name)
+		"type":"^[(type)|(\\stype)|(type\\s)]+[(]+[a-z]+[)]$",
+		//show variable id
+		//id(variable-name)
+		"id":"^[(id)|(\\sid)|(id\\s)]+[(]+[a-z]+[)]$",
 	}
 )
 //check match pattern with syntax

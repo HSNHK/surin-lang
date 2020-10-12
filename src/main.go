@@ -24,7 +24,7 @@ func main(){
 		//open file
 		fileScan :=bufio.NewScanner(file)
 		for fileScan.Scan(){
-			//check syntax commented
+			//check commented
 			if fileScan.Text()[0]== '#' {
 				continue
 			}
@@ -37,11 +37,13 @@ func main(){
 		}
 
 	}else {
-		//default syntax
+		//constant syntax
 		command:=map[string]string{
 			"exit":"enter exit() for close in interpreter",
 			"hello":"hello programmer welcome to surin interpreter",
 			"help":"pales view README",
+			"true":"true",
+			"false":"false",
 		}
 		//baner
 		fmt.Println("   _____            _          __")
@@ -65,12 +67,13 @@ func main(){
 					break
 				}
 			}
-			//close interpreter
-			if userCommand=="exit()"{
+			if userCommand =="\n" || userCommand==" " {
+				continue
+			} else if userCommand=="exit()"{
 				break
-			}else{
 				//&stack=send stack address or send reference
-				parser.Core(userCommand,&stack)
+			}else if  parser.Core(userCommand,&stack) !=true {
+				continue
 			}
 		}
 	}
