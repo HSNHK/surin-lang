@@ -75,3 +75,7 @@ id(variableName) #variable id
 ## Documents
 
 All documentation in the folder documentation
+
+## Link
+https://github.com/HSNHK/surin-lang
+https://github.com/HSNHK/
