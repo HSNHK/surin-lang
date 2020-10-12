@@ -67,6 +67,10 @@ rm(variableName) #delete variable in stack
 
 add(variableName,value) #add value to variable | +=
 
+type(variableName) #variable type
+
+id(variableName) #variable id
+
 ``` 
 ## Documents
 
