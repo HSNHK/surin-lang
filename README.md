@@ -10,7 +10,7 @@ In practice, this language is just a structure and more work has been done on it
 ### instruction
 ```
 
-code --> analyze code --> pattern --> syntax function --> interpreter functions
+code --> analyze code --> check pattern --> syntax function --> interpreter functions
 
 ```
 In the code analysis section,<br>
