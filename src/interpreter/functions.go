@@ -25,7 +25,7 @@ func Find(value1,value2 string)bool{
 	if strings.Contains(value1,value2){
 		return true
 	}
-	return false
+	return false//not find
 }
 //PushStack function for push value to variable
 func PushStack(VariableName,_type string,Data interface{}, stackMap *map[string][]interface{}){
@@ -39,22 +39,22 @@ func CreateVariable(VariableName,_type string,stackMap *map[string][]interface{}
 	stack[VariableName]=[]interface{}{nil,nil,nil}
 	stack[VariableName][0]=_type
 	stack[VariableName][1]=nil
-	stack[VariableName][2]=rand.Int()
+	stack[VariableName][2]=rand.Int()//is generate random id
 }
 //GetValue function for return variable value
 func GetValue(VariableName string,stackMap *map[string][]interface{})interface{}{
 	var stack map[string][]interface{}=*stackMap
-	return stack[VariableName][1]
+	return stack[VariableName][1]//[1]=value index
 }
 //ExistVariable function for check variable exist
 func ExistVariable(VariableName string,stackMap *map[string][]interface{})bool{
 	var stack map[string][]interface{}=*stackMap
 	for key:=range stack{
 		if key==VariableName{
-			return true
+			return true //exist variable
 		}
 	}
-	return false
+	return false //not exist variable
 }
 //DeleteVariable function for delete variable
 func DeleteVariable(VariableName string,stackMap *map[string][]interface{})bool{
@@ -63,10 +63,10 @@ func DeleteVariable(VariableName string,stackMap *map[string][]interface{})bool{
 		if key==VariableName{
 			//delete variable
 			delete(stack,VariableName)
-			return true
+			return true//exist variable
 		}
 	}
-	return false
+	return false //not exist variable
 }
 //AddToVariable function for add value to variable(last value + new value)
 func AddToVariable(VariableName, _type string,Data interface{},stackMap *map[string][]interface{}) {
@@ -84,29 +84,32 @@ func AddToVariable(VariableName, _type string,Data interface{},stackMap *map[str
 		//new value
 		y,err:=strconv.Atoi(Data.(string))
 		if err ==nil{
+		//[1]=value index
 			stack[VariableName][1]= y + x
 		}else{
+		//The value could not be converted to int
 			fmt.Println(err)
 		}
 	}
 }
-
+//return a variable type
 func Type(VariableName string, stackMap *map[string][]interface{}) interface{} {
 	var stack map[string][]interface{}=*stackMap
 	for key:=range stack{
 		if key==VariableName{
-			return stack[VariableName][0]
+			return stack[VariableName][0]//type index
 		}
 	}
-	return nil
+	return nil //not exist variable
 }
-
+//return a variable id
+//create id in CreateVariable function
 func Id(VariableName string, stackMap *map[string][]interface{}) interface{} {
 	var stack map[string][]interface{}=*stackMap
 	for key:=range stack{
 		if key==VariableName{
-			return stack[VariableName][2]
+			return stack[VariableName][2]//id index
 		}
 	}
-	return nil
+	return nil //not exist variable
 }
