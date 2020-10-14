@@ -52,6 +52,12 @@ var(
 		//show variable id
 		//id(variable-name)
 		"id":"^[(id)|(\\sid)|(id\\s)]+[(]+[a-z]+[)]$",
+		//return variable value
+		//ivar(variable-name)
+		"ivar":"^[(ivar)|(\\sivar)|(ivar\\s)]+[(]+[a-z]+[)]$",
+		//if style1
+		//if(12,>=,114)?print("ok"):print("no")
+		"if_s1":"^[(if)|(\\sif)|(if\\s)]+[(]+[\\d]+[,]+[(>)|(<)|(>=)|(<=)]+[,][0-9]+[)]+[?]+[(print)]+[(]+[\"].*[\"]+[)]+[:]+[(print)]+[(]+[\"].*[\"]+[)]$",
 	}
 )
 //check match pattern with syntax
