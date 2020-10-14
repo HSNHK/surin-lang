@@ -72,8 +72,8 @@ func main(){
 			} else if userCommand=="exit()"{
 				break
 				//&stack=send stack address or send reference
-			}else if  parser.Core(userCommand,&stack) !=true {
-				continue
+			}else{
+				parser.Core(userCommand,&stack)
 			}
 		}
 	}
