@@ -6,7 +6,7 @@ import (
 
 const STRING ="str"
 const INT ="int"
-func Core(code string,stack *map[string][]interface{})bool{
+func Core(code string,stack *map[string][]interface{})interface{}{
 
 	if IsValid("print",code){
 		syntax.Print(code,STRING)
@@ -70,10 +70,15 @@ func Core(code string,stack *map[string][]interface{})bool{
 	}else if IsValid("type",code){
 		syntax.Stype(code,stack)
 		return true
-	}else if IsValid("",code){
+	}else if IsValid("id",code){
 		syntax.Id(code,stack)
 		return true
-	}else{
+	}else if IsValid("ivar",code){
+		return syntax.Ivar(code,stack)
+	}else if IsValid("if_s1",code){
+		syntax.IF(code)
+		return true
+	} else{
 		return false
 	}
 }
