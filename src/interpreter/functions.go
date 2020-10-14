@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"strconv"
 	"strings"
+	"time"
 )
 
 //system functions
@@ -112,4 +113,7 @@ func Id(VariableName string, stackMap *map[string][]interface{}) interface{} {
 		}
 	}
 	return nil //not exist variable
+}
+func Time() string{
+	return fmt.Sprintf("%d:%d:%d",time.Now().Hour(),time.Now().Minute(),time.Now().Second())
 }
