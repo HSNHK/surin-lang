@@ -3,6 +3,7 @@ package interpreter
 import (
 	"fmt"
 )
+//log level and flag
 const(
 	info=1
 	infoFlag="I!"
@@ -11,6 +12,7 @@ const(
 	error=3
 	errorFlag="E*"
 )
+//log function
 func Log(log,location string,level int)  {
 	if level==info{
 		fmt.Println(fmt.Sprintf("[%s]|%s|=>|%s|=> %s",infoFlag,Time(),location,log))

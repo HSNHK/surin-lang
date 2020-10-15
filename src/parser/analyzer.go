@@ -3,7 +3,7 @@ package parser
 import (
 	"./syntax"
 )
-//variable type
+//value type
 const STRING ="str"
 const INT ="int"
 func Core(code string,stack *map[string][]interface{})interface{}{
