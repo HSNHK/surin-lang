@@ -48,7 +48,7 @@ and unlike compilers, the code is not translated into another language.
 
 Description of language structure
 
-code --> analyze code --> interpreter functions
+code --> analyze code --> check pattern --> syntax function --> interpreter functions
 
 In the code analysis section,
 if it matches the specified patterns,
