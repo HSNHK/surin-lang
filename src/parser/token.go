@@ -80,7 +80,6 @@ func IsExistPattern(PTN string)bool{
 //return the number of all patterns
 func PatternLen()int{
 	return  len(pattern)
-
 }
 //return all pattern key
 func AllPatternKey()string{
