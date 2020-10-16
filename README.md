@@ -19,8 +19,7 @@ it will be executed<br>
 
 Regexis used to analyze the code,
 and each command has a pattern.
-For example, the print command has a pattern like this:
-
+Rm9yIGV4YW1wbGUsIHRoZSBwcmludCBjb21tYW5kIGhhcyBhIHBhdHRlcm4gbGlrZSB0aGlzOg0K
 ```
 
 print("Hello world")
@@ -71,6 +70,10 @@ type(variableName) #variable type
 
 id(variableName) #variable id
 
+[*]if
+
+if(condition)?bloc:else
+if(2,>=,2)?print("yes"):print("no")
 ``` 
 ## Documents
 
