@@ -18,7 +18,7 @@ if it matches the specified patterns,<br>
 it will be executed<br>
 
 Regexis used to analyze the code,
-and each command has a pattern.
+and each command has a pattern.<br>
 For example, the print command has a pattern like this:
 ```
 
