@@ -40,6 +40,8 @@ or
 ## syntax
 
 ```
+[*]General functions
+
 print("hello") #print string
 
 print(1234)    #print int
@@ -73,6 +75,7 @@ id(variableName) #variable id
 [*]if
 
 if(condition)?body:else
+
 if(2,>=,2)?print("yes"):print("no")
 ``` 
 ## Documents
