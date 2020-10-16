@@ -19,7 +19,7 @@ it will be executed<br>
 
 Regexis used to analyze the code,
 and each command has a pattern.
-Rm9yIGV4YW1wbGUsIHRoZSBwcmludCBjb21tYW5kIGhhcyBhIHBhdHRlcm4gbGlrZSB0aGlzOg0K
+For example, the print command has a pattern like this:
 ```
 
 print("Hello world")
