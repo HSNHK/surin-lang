@@ -72,7 +72,7 @@ id(variableName) #variable id
 
 [*]if
 
-if(condition)?bloc:else
+if(condition)?body:else
 if(2,>=,2)?print("yes"):print("no")
 ``` 
 ## Documents
