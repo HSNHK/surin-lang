@@ -1,6 +1,7 @@
 package main
 
 import (
+	"./interpreter"
 	"./parser"
 	"bufio"
 	"fmt"
@@ -13,6 +14,15 @@ var stack=map[string][]interface{}{
 	"first":{"type","value","id"},
 }
 
+//constant syntax
+var command=map[string]interface{}{
+		"exit":"enter exit() for close in interpreter",
+		"hello":"hello programmer welcome to surin interpreter",
+		"help":"pales view README",
+		"true":"true",
+		"false":"false",
+		"time":interpreter.Time(),
+	}
 func main(){
 	input:=os.Args
 	//check input = surin.exe file-path
@@ -28,6 +38,12 @@ func main(){
 			if fileScan.Text()[0]== '#' {
 				continue
 			}
+			for key,value:=range command{
+				if fileScan.Text()==key{
+					fmt.Println(value)
+					continue
+				}
+			}
 			//&stack=send stack address or send reference
 			parser.Core(fileScan.Text(),&stack)
 		}
@@ -37,14 +53,7 @@ func main(){
 		}
 
 	}else {
-		//constant syntax
-		command:=map[string]string{
-			"exit":"enter exit() for close in interpreter",
-			"hello":"hello programmer welcome to surin interpreter",
-			"help":"pales view README",
-			"true":"true",
-			"false":"false",
-		}
+
 		//baner
 		fmt.Println("   _____            _          __")
 		fmt.Println("  / ___/__  _______(_)___     / /   ____ _____  ____ _")

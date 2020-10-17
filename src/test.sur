@@ -11,6 +11,7 @@ pop(reza)
 type(reza)
 id(reza)
 if(5,>=,25)?print("ok"):print("no")
+time
 #print("hello")
 #logic(3,>=,2)
 #math(2,**,4)

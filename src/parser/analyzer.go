@@ -82,6 +82,7 @@ func Core(code string,stack *map[string][]interface{})interface{}{
 	}else if IsValid("if_s1",code){
 		syntax.IF(code)
 		return true
+
 	} else{
 		return false
 	}
