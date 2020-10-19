@@ -68,6 +68,8 @@ rm(variableName) #delete variable in stack
 
 add(variableName,value) #add value to variable | +=
 
+cmp(variable-1,variable-2)
+
 type(variableName) #variable type
 
 id(variableName) #variable id
