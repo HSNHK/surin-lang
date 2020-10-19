@@ -33,3 +33,11 @@ func ExistVariable(VariableName string,stackMap *map[string][]interface{})bool{
 	}
 	return false //not exist variable
 }
+//cmp function
+func Cmp(var1,var2 string,stackMap *map[string][]interface{}) bool {
+	if GetValue(var1,stackMap)==GetValue(var2,stackMap){
+		return true
+	}else{
+		return false
+	}
+}

@@ -46,6 +46,8 @@ var(
 		"add_int":"^[(add)|(\\sadd)|(add\\s)]+[(]+[\"].*[\"]+[\\,]+[0-9]+[)]$",
 		//add(variable-name,"string value")
 		"add_str":"^[(add)|(\\sadd)|(add\\s)]+[(]+[\"].*[\"]+[\\,]+[\"].*[\"]+[)]$",
+		//cmp variable
+		"cmp":"^[(cmp)|(\\scmp)|(cmp\\s)]+[(]+[a-z]+[\\,]+[a-z]+[)]$",
 		//show variable type
 		//type(variable-name)
 		"type":"^[(type)|(\\stype)|(type\\s)]+[(]+[a-z]+[)]$",
