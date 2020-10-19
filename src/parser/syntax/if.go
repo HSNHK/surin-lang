@@ -16,7 +16,7 @@ func  Ivar(code string,stack *map[string][]interface{})  interface{}{
 	}
 }
 //if syntax
-func IF(code string)  {
+func IF(code string){
 	//if(5[,]>=[,]3)
 	codeSpit :=strings.Split(code,",")
 	v1,err1:=strconv.Atoi(codeSpit[0][3:])
@@ -30,6 +30,7 @@ func IF(code string)  {
 			//if(5,>=,3)?print("ok")[:]print("no")
 			codeSpit=strings.Split(codeSpit[1],":")
 			Print(codeSpit[0],STRING)
+
 		}else {
 			//if(5,>=,3)[?]print("ok"):print("no")
 			codeSpit=strings.Split(code,"?")
