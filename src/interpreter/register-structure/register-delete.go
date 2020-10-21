@@ -1,4 +1,4 @@
-package interpreter
+package register_structure
 
 //DeleteVariable function for delete variable
 func DeleteVariable(VariableName string, registerMap *map[string][]interface{})bool{

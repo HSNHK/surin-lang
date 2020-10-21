@@ -1,4 +1,4 @@
-package interpreter
+package register_structure
 
 import (
 	"fmt"

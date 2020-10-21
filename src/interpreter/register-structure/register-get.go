@@ -1,4 +1,4 @@
-package interpreter
+package register_structure
 
 
 //GetValue function for return variable value

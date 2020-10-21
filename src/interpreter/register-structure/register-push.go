@@ -1,4 +1,4 @@
-package interpreter
+package register_structure
 
 //Push register function for push value to variable
 func PushStack(VariableName,_type string,Data interface{}, registerMap *map[string][]interface{}){

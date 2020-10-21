@@ -2,14 +2,15 @@ package syntax
 
 import (
 	"../../interpreter"
+	"../../interpreter/register-structure"
 	"strconv"
 	"strings"
 )
 //ivar(name)
-func  Ivar(code string,stack *map[string][]interface{})  interface{}{
+func  Ivar(code string, register *map[string][]interface{})  interface{}{
 	//ivar([name])
-	if interpreter.ExistVariable(code[4:len(code)-1],stack) {
-		return interpreter.GetValue(code[4:len(code)-1], stack)
+	if register_structure.ExistVariable(code[4:len(code)-1], register) {
+		return register_structure.GetValue(code[4:len(code)-1], register)
 	}else{
 		interpreter.Log("not found variable","ivar function",2)
 		return nil

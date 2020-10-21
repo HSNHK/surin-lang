@@ -8,12 +8,16 @@ import (
 	"log"
 	"os"
 )
-//stack map
+//registers map
 //[variable-name]:[variable-type(int,str),variable-value,ID]
-var stack=map[string][]interface{}{
+var registers =map[string][]interface{}{
 	"first":{"type","value","id"},
 }
-
+//list map
+//[list-name]:[item]
+var list =map[string] []interface{}{
+	"name":{1,2,3,4,5,6},
+}
 //constant syntax
 var command=map[string]interface{}{
 		"exit":"enter exit() for close in interpreter",
@@ -22,7 +26,8 @@ var command=map[string]interface{}{
 		"true":"true",
 		"false":"false",
 		"time":interpreter.Time(),
-	}
+}
+
 func main(){
 	input:=os.Args
 	//check input = surin.exe file-path
@@ -44,8 +49,8 @@ func main(){
 					continue
 				}
 			}
-			//&stack=send stack address or send reference
-			parser.Core(fileScan.Text(),&stack)
+			//&registers=send registers address or send reference
+			parser.Core(fileScan.Text(),&registers)
 		}
 		//file open error
 		if err:= fileScan.Err();err!=nil{
@@ -80,9 +85,9 @@ func main(){
 				continue
 			} else if userCommand=="exit()"{
 				break
-				//&stack=send stack address or send reference
+				//&registers=send registers address or send reference
 			}else{
-				parser.Core(userCommand,&stack)
+				parser.Core(userCommand,&registers)
 			}
 		}
 	}

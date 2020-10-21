@@ -1,4 +1,4 @@
-package interpreter
+package register_structure
 
 
 //return a variable type
