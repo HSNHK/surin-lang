@@ -1,11 +1,14 @@
-package syntax
+package register_syntax
 
 import (
-	"../../interpreter"
-	"../../interpreter/register-structure"
+	"../../../interpreter"
+	"../../../interpreter/register-structure"
 	"fmt"
 	"strings"
 )
+//value type
+const STRING ="str"
+const INT ="int"
 
 //get variable type syntax
 func Stype(code string, register *map[string][]interface{})  {

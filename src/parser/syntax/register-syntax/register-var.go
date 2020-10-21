@@ -1,7 +1,7 @@
-package syntax
+package register_syntax
 
 import (
-	"../../interpreter/register-structure"
+	"../../../interpreter/register-structure"
 )
 
 //create variable syntax

@@ -1,8 +1,8 @@
-package syntax
+package register_syntax
 
 import (
-	"../../interpreter"
-	"../../interpreter/register-structure"
+	"../../../interpreter"
+	"../../../interpreter/register-structure"
 	"fmt"
 )
 
