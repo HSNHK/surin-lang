@@ -6,8 +6,8 @@ import (
 )
 
 //AddToVariable function for add value to variable(last value + new value)
-func AddToVariable(VariableName, _type string,Data interface{},stackMap *map[string][]interface{}) {
-	var stack map[string][]interface{}=*stackMap
+func AddToVariable(VariableName, _type string,Data interface{}, registerMap *map[string][]interface{}) {
+	var stack map[string][]interface{}=*registerMap
 	//check variable type
 	if _type=="str"{
 		stack[VariableName][0]=_type

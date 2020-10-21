@@ -3,8 +3,8 @@ package interpreter
 import "math/rand"
 
 //CreateVariable function for create new variable
-func CreateVariable(VariableName,_type string,stackMap *map[string][]interface{}){
-	var stack map[string][]interface{}=*stackMap
+func CreateVariable(VariableName,_type string, registerMap *map[string][]interface{}){
+	var stack map[string][]interface{}=*registerMap
 	stack[VariableName]=[]interface{}{nil,nil,nil}
 	stack[VariableName][0]=_type
 	stack[VariableName][1]=nil
