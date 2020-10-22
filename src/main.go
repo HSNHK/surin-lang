@@ -50,7 +50,7 @@ func main(){
 				}
 			}
 			//&registers=send registers address or send reference
-			parser.Core(fileScan.Text(),&registers)
+			parser.Core(fileScan.Text(),&registers,&list)
 		}
 		//file open error
 		if err:= fileScan.Err();err!=nil{
@@ -87,7 +87,7 @@ func main(){
 				break
 				//&registers=send registers address or send reference
 			}else{
-				parser.Core(userCommand,&registers)
+				parser.Core(userCommand,&registers,&list)
 			}
 		}
 	}

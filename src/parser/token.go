@@ -60,6 +60,15 @@ var(
 		//if style1
 		//if(12,>=,114)?print("ok"):print("no")
 		"if_s1":"^[(if)|(\\sif)|(if\\s)]+[(]+[\\d]+[,]+[(>)|(<)|(>=)|(<=)]+[,][0-9]+[)]+[?]+[(print)]+[(]+[\"].*[\"]+[)]+[:]+[(print)]+[(]+[\"].*[\"]+[)]$",
+		//list
+		//list(name)
+		"list":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[)]$",
+		//list get value
+		//list(name,index)
+		"list-get":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[,][0-9]+[)]$",
+		//list push
+		//list(name,index,value)
+		"list-push":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[,][0-9]+[,]+.*[)]$",
 	}
 )
 //check match pattern with syntax

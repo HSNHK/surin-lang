@@ -2,13 +2,13 @@ package parser
 
 import (
 	"./syntax"
-	"./syntax/register-syntax"
 	"./syntax/list-syntax"
+	"./syntax/register-syntax"
 )
 //value type
 const STRING ="str"
 const INT ="int"
-func Core(code string, register *map[string][]interface{}){
+func Core(code string, register,list *map[string][]interface{}){
 	//print("hello")
 	if IsValid("print",code){
 		syntax.Print(code,STRING)
@@ -73,6 +73,9 @@ func Core(code string, register *map[string][]interface{}){
 	}else if IsValid("cmp",code){
 		register_syntax.Cmp(code, register)
 	}else if IsValid("list",code){
-
+		list_syntax.List(code,list)
+	}else if IsValid("list-push",code){
+		list_syntax.ListPush(code,list)
 	}
+
 }
