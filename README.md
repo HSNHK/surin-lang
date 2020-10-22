@@ -56,7 +56,7 @@ len("hello programer") #string len function
 
 find("hello","he") #find string to string
 
-[*]stack
+[*]register
 
 var(variableName) #create variables
 
@@ -79,6 +79,11 @@ id(variableName) #variable id
 if(condition)?body:else
 
 if(2,>=,2)?print("yes"):print("no")
+
+[*]list
+
+...
+
 ``` 
 ## Documents
 
