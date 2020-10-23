@@ -62,7 +62,7 @@ var(
 		"if_s1":"^[(if)|(\\sif)|(if\\s)]+[(]+[\\d]+[,]+[(>)|(<)|(>=)|(<=)]+[,][0-9]+[)]+[?]+[(print)]+[(]+[\"].*[\"]+[)]+[:]+[(print)]+[(]+[\"].*[\"]+[)]$",
 		//list
 		//list(name)
-		"list":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[)]$",
+		"list":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[:]+[0-9]+[)]$",
 		//list get value
 		//list(name,index)
 		"list-get":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[,][0-9]+[)]$",

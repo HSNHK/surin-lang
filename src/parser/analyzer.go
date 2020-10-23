@@ -76,6 +76,7 @@ func Core(code string, register,list *map[string][]interface{}){
 		list_syntax.List(code,list)
 	}else if IsValid("list-push",code){
 		list_syntax.ListPush(code,list)
+	}else if IsValid("list-get",code) {
+		list_syntax.ListGet(code,list)
 	}
-
 }
