@@ -56,6 +56,10 @@ len("hello programer") #string len function
 
 find("hello","he") #find string to string
 
+info 
+
+time
+
 [*]register
 
 var(variableName) #create variables
@@ -82,7 +86,11 @@ if(2,>=,2)?print("yes"):print("no")
 
 [*]list
 
-...
+list(list-name:size) #create list
+
+list(list-name,index,value) # set value for list with index
+
+list(list-name,index) #return value with index
 
 ``` 
 ## Documents
