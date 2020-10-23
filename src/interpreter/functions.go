@@ -2,6 +2,8 @@ package interpreter
 
 import (
 	"fmt"
+	"os"
+	"runtime"
 	"strings"
 	"time"
 )
@@ -29,4 +31,13 @@ func Find(value1,value2 string)bool{
 //time function
 func Time() string{
 	return fmt.Sprintf("%d:%d:%d",time.Now().Hour(),time.Now().Minute(),time.Now().Second())
+}
+//system info
+func Info() string {
+	user,_:=os.Hostname()
+	dir,_:=os.Getwd()
+	return fmt.Sprintf("{username :%v\n" +
+		                      "dir :%v\n" +
+		                      "cpu count :%d\n"+
+					          "process id :%d}",user,dir,runtime.NumCPU(),os.Getpid())
 }

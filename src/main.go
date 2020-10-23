@@ -26,6 +26,7 @@ var command=map[string]interface{}{
 		"true":"true",
 		"false":"false",
 		"time":interpreter.Time(),
+		"info":interpreter.Info(),
 }
 
 func main(){
