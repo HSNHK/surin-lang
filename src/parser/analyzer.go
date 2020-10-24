@@ -70,12 +70,16 @@ func Core(code string, register,list *map[string][]interface{}){
 	//if(1,>,2)?print("yes"):print("no")
 	}else if IsValid("if_s1",code){
 		syntax.IF(code)
+	//cmp(variable-name-1,variable-name-2)
 	}else if IsValid("cmp",code){
 		register_syntax.Cmp(code, register)
+	//list(name:size)
 	}else if IsValid("list",code){
 		list_syntax.List(code,list)
+	//list(name,index,value)
 	}else if IsValid("list-push",code){
 		list_syntax.ListPush(code,list)
+	//list(name,index)
 	}else if IsValid("list-get",code) {
 		list_syntax.ListGet(code,list)
 	}
