@@ -1,5 +1,6 @@
 package list_structure
 
+//check exist list with name
 func ExistList(listName string,ListMap *map[string][]interface{}) bool{
 	var list map[string][]interface{}=*ListMap
 	for key:=range list{
