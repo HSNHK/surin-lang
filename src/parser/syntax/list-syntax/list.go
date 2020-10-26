@@ -3,6 +3,7 @@ package list_syntax
 import (
 	"../../../interpreter"
 	"../../../interpreter/list-structure"
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -22,4 +23,9 @@ func List(code string,ListMap *map[string][]interface{})  {
 		interpreter.Log("list size error","create list",3)
 	}
 }
-
+//show all item
+//list(name)
+func ShowList(code string,ListMap *map[string][]interface{})  {
+	//list([name])
+	fmt.Println(list_structure.List(code[5:len(code)-1],ListMap))
+}

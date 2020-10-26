@@ -61,7 +61,7 @@ var(
 		//if(12,>=,114)?print("ok"):print("no")
 		"if_s1":"^[(if)|(\\sif)|(if\\s)]+[(]+[\\d]+[,]+[(>)|(<)|(>=)|(<=)]+[,][0-9]+[)]+[?]+[(print)]+[(]+[\"].*[\"]+[)]+[:]+[(print)]+[(]+[\"].*[\"]+[)]$",
 		//list
-		//list(name)
+		//list(name:size)
 		"list":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[:]+[0-9]+[)]$",
 		//list get value
 		//list(name,index)
@@ -69,6 +69,9 @@ var(
 		//list push
 		//list(name,index,value)
 		"list-push":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[,][0-9]+[,]+.*[)]$",
+		//list show all item
+		//list(name)
+		"show-all-list-item":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[)]$",
 	}
 )
 //check match pattern with syntax

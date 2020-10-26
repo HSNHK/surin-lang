@@ -4,6 +4,7 @@ import (
 	"./syntax"
 	"./syntax/list-syntax"
 	"./syntax/register-syntax"
+	"fmt"
 )
 //value type
 const STRING ="str"
@@ -82,5 +83,9 @@ func Core(code string, register,list *map[string][]interface{}){
 	//list(name,index)
 	}else if IsValid("list-get",code) {
 		list_syntax.ListGet(code,list)
+	}else if IsValid("show-all-list-item",code) {
+		list_syntax.ShowList(code,list)
+	}else{
+		fmt.Println("command fail ..!")
 	}
 }
