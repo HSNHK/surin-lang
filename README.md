@@ -92,6 +92,8 @@ list(list-name,index,value) # set value for list with index
 
 list(list-name,index) #return value with index
 
+list(list-name) # print all list item [ index : value ]
+
 ``` 
 ## Documents
 
