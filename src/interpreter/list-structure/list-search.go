@@ -33,6 +33,12 @@ func sort(name string,ListMap *map[string][]interface{}){
 	}
 }
 
-func Search(value string,ListMap *map[string][]interface{}){
-
+func Search(name,Value string,ListMap *map[string][]interface{})int{
+	var list=*ListMap
+	for index,value:=range list[name]{
+		if value==Value{
+			return index
+		}
+	}
+	return -1
 }
