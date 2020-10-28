@@ -18,7 +18,9 @@ func ExistList(listName string,ListMap *map[string][]interface{}) bool{
 //show all item
 //list(name)
 func List(name string,ListMap *map[string][]interface{}) string {
+
 	var list map[string][]interface{}=*ListMap
+	sort(name,&list)
 	//check exist list
 	if ExistList(name,ListMap){
 		for key:=range list{
