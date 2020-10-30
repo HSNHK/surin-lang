@@ -15,16 +15,16 @@ build:
 #build project on linux	
 compile-linux:
 	@echo "Compiling for linux : SurinBuild/main-linux-386"
-	GOOS=linux GOARCH=386 go build -o SurinBuild/main-linux-386 main.go
+	GOOS=linux GOARCH=386 go build -o SurinBuild/main-linux-386 main.go set GOOS=windows
 	
 #build project on freebsd
 compile-freebsd:
 	@echo "Compiling for freebsd : SurinBuild/main-freebsd-386"
-	GOOS=freebsd GOARCH=386 go build -o SurinBuild/main-freebsd-386 main.go
+	GOOS=freebsd GOARCH=386 go build -o SurinBuild/main-freebsd-386 main.go set GOOS=windows
 	
 #compile all
 compile-all:
 	@echo "Compiling for every OS and Platform :./SurinBuild/"
-	GOOS=freebsd GOARCH=386 go build -o SurinBuild/main-freebsd-386 main.go
-	GOOS=linux GOARCH=386 go build -o SurinBuild/main-linux-386 main.go
+	GOOS=freebsd GOARCH=386 go build -o SurinBuild/main-freebsd-386 main.go set GOOS=windows
+	GOOS=linux GOARCH=386 go build -o SurinBuild/main-linux-386 main.go set GOOS=windows
 	GOOS=windows GOARCH=386 go build -o SurinBuild/main-windows-386.exe main.go
