@@ -95,6 +95,18 @@ list(list-name,index) #return value with index
 list(list-name) # print all list item [ index : value ]
 
 ``` 
+## MakeFile
+```
+make linux or windows
+
+make help
+
+make run or build
+
+make compile-windows or compile-linux or compile-freebsd
+
+make compile-all
+```
 ## Documents
 
 All documentation in the folder documentation
