@@ -11,7 +11,7 @@ func ListGet(ListName string,index int,ListMap *map[string][]interface{})interfa
 	var list map[string][]interface{}=*ListMap
 	//check exist list
 	if ExistList(ListName,ListMap){
-		fmt.Println(Search(ListName,list[ListName][index].(string),ListMap))
+		fmt.Printf("search {%v} index : {%d}\n", list[ListName][index], Search(ListName, list[ListName][index].(string), ListMap))
 		return list[ListName][index]
 	}else {
 		interpreter.Log("not found list : "+ListName,"get list value",2)
