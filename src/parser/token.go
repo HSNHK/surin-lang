@@ -4,6 +4,7 @@ import "regexp"
 
 var(
 	//all pattern | regex format
+	//https://en.wikipedia.org/wiki/Regular_expression
 	pattern=map[string]string{
 		//print pattern
 		//print("hello")

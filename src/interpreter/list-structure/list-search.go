@@ -3,7 +3,8 @@ package list_structure
 import "fmt"
 
 
-//bauble sort function
+//bubble sort function
+//https://en.wikipedia.org/wiki/Bubble_sort
 func sort(name string,ListMap *map[string][]interface{}){
 	var list=*ListMap
 	for index:=len(list[name])-2;index>=0;index--{
@@ -47,6 +48,7 @@ func sort(name string,ListMap *map[string][]interface{}){
 	}
 }
 //binary search function
+//https://en.wikipedia.org/wiki/Binary_search_algorithm
 func Search(name,Value string,ListMap *map[string][]interface{})int{
 	var list map[string][]interface{}=*ListMap
 	//item index found
