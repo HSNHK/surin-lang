@@ -1,30 +1,44 @@
 package list_structure
 
 import "fmt"
+
+
 //bauble sort function
 func sort(name string,ListMap *map[string][]interface{}){
 	var list=*ListMap
 	for index:=len(list[name])-2;index>=0;index--{
+		//check item type
 		if fmt.Sprintf("%T",list[name][index])=="string" {
+			//compare item with all item
 			for i := 0; i<=index; i++ {
+				//check item != null
 				if list[name][i]!=nil {
+					//item1 > item2
 					if fmt.Sprintf("%v", list[name][i]) >
 					   fmt.Sprintf("%v", list[name][i+1]){
 						//fmt.Println(list[name][i]," > ",list[name][i+1])
+						//next = item2
 						next:=list[name][i+1]
+						//item2 = item1
 						list[name][i+1]=list[name][i]
+						//item1 = next
 						list[name][i]=next
 					}
 				}
 			}
 		}else if fmt.Sprintf("%T",list[name][index])=="int"{
 			for i := 0; i<=index; i++ {
+				//check item != null
 				if list[name][i]!=nil {
+					//item1 > item2
 					if fmt.Sprintf("%v", list[name][i]) >
 					   fmt.Sprintf("%v", list[name][i+1]){
-						fmt.Println(list[name][i]," > ",list[name][i+1])
+						//fmt.Println(list[name][i]," > ",list[name][i+1])
+						//temp = item1
 						temp:=list[name][i]
+						//item1 = item2
 						list[name][i]=list[name][i+1]
+						//item2 = temp
 						list[name][i+1]=temp
 					}
 				}

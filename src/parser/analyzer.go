@@ -83,6 +83,7 @@ func Core(code string, register,list *map[string][]interface{}){
 	//list(name,index)
 	}else if IsValid("list-get",code) {
 		list_syntax.ListGet(code,list)
+	//list(list-name)
 	}else if IsValid("show-all-list-item",code) {
 		list_syntax.ShowList(code,list)
 	}else{
