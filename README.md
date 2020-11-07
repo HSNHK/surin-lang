@@ -94,6 +94,9 @@ list(list-name,index) #return value with index
 
 list(list-name) # print all list item [ index : value ]
 
+//binary search
+list.search(list-name,value) # search method for Returns its number if available otherwise -1
+
 ``` 
 ## MakeFile
 ```
