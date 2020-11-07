@@ -64,7 +64,7 @@ func Search(name,Value string,ListMap *map[string][]interface{})int{
 			end++
 		}
 	}
-	fmt.Println("len : ",end)
+	//fmt.Println("len : ",end)
 	for  start<=end{
 		//list size / 2
 		mid:=(start+end)/2

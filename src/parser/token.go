@@ -73,6 +73,9 @@ var(
 		//list show all item
 		//list(name)
 		"show-all-list-item":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[)]$",
+		//search to list
+		//list.index(list-name,value)
+		"list-search":"^[(list.search)|(\\slist.search)|(list.search\\s]+[(]+[a-z]+[,]+.*[)]$",
 	}
 )
 //check match pattern with syntax
@@ -99,8 +102,8 @@ func PatternLen()int{
 //return all pattern key
 func AllPatternKey()string{
 	var all string
-	for i:=range pattern{
-		all=all+"\n"+i
+	for key:=range pattern{
+		all=all+"\n"+key
 	}
 	return all
 }

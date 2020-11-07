@@ -29,3 +29,14 @@ func ShowList(code string,ListMap *map[string][]interface{})  {
 	//list([name])
 	fmt.Println(list_structure.List(code[5:len(code)-1],ListMap))
 }
+//search method syntax
+//list.search(list-name,value)
+func Search(code string,ListMap *map[string][]interface{})  {
+	//list.search[(list-name,value)]
+	codesplit_step_1:=strings.Split(code,"(")
+	//list.search([list-name,value)]
+	codesplit_step_2:=strings.Split(codesplit_step_1[1],",")
+	//remove list.search(list-name,value[)]
+	codesplit_step_2[1]=codesplit_step_2[1][:len(codesplit_step_2[1])-1]
+	fmt.Println(list_structure.Search(codesplit_step_2[0],codesplit_step_2[1],ListMap))
+}

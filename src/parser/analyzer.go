@@ -86,6 +86,8 @@ func Core(code string, register,list *map[string][]interface{}){
 	//list(list-name)
 	}else if IsValid("show-all-list-item",code) {
 		list_syntax.ShowList(code,list)
+	}else if IsValid("list-search",code) {
+		list_syntax.Search(code,list)
 	}else{
 		fmt.Println("command fail ..!")
 	}
