@@ -97,6 +97,8 @@ list(list-name) # print all list item [ index : value ]
 //binary search
 list.search(list-name,value) # search method for Returns its number if available otherwise -1
 
+//bubble sort 
+list.sort(list-name) # list sort item A-z 0-9 and etc
 ``` 
 ## MakeFile
 ```
