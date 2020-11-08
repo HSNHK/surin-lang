@@ -40,3 +40,7 @@ func Search(code string,ListMap *map[string][]interface{})  {
 	codesplit_step_2[1]=codesplit_step_2[1][:len(codesplit_step_2[1])-1]
 	fmt.Println(list_structure.Search(codesplit_step_2[0],codesplit_step_2[1],ListMap))
 }
+
+func Sort(code string,ListMap *map[string][]interface{})  {
+	list_structure.Sort(code[10:len(code)-1],ListMap)
+}

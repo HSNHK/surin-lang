@@ -73,9 +73,13 @@ var(
 		//list show all item
 		//list(name)
 		"show-all-list-item":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[)]$",
+		//method
 		//search to list
 		//list.index(list-name,value)
 		"list-search":"^[(list.search)|(\\slist.search)|(list.search\\s]+[(]+[a-z]+[,]+.*[)]$",
+		//sort list
+		//list.sort(list-name)
+		"list-sort":"^[(list.sort)|(\\slist.sort)|(list.sort\\s]+[(]+[a-z]+[)]$",
 	}
 )
 //check match pattern with syntax

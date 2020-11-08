@@ -5,7 +5,7 @@ import "fmt"
 
 //bubble sort function
 //https://en.wikipedia.org/wiki/Bubble_sort
-func sort(name string,ListMap *map[string][]interface{}){
+func Sort(name string,ListMap *map[string][]interface{}){
 	var list=*ListMap
 	for index:=len(list[name])-2;index>=0;index--{
 		//check item type
