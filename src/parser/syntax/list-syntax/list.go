@@ -3,6 +3,7 @@ package list_syntax
 import (
 	"../../../interpreter"
 	"../../../interpreter/list-structure"
+	"../../syntax"
 	"fmt"
 	"strconv"
 	"strings"
@@ -33,14 +34,14 @@ func ShowList(code string,ListMap *map[string][]interface{})  {
 //list.search(list-name,value)
 func Search(code string,ListMap *map[string][]interface{})  {
 	//list.search[(list-name,value)]
-	codesplit_step_1:=strings.Split(code,"(")
+	codesplitStep1 :=strings.Split(code,"(")
 	//list.search([list-name,value)]
-	codesplit_step_2:=strings.Split(codesplit_step_1[1],",")
+	codesplitStep2 :=strings.Split(codesplitStep1[1],",")
 	//remove list.search(list-name,value[)]
-	codesplit_step_2[1]=codesplit_step_2[1][:len(codesplit_step_2[1])-1]
-	fmt.Println(list_structure.Search(codesplit_step_2[0],codesplit_step_2[1],ListMap))
+	codesplitStep2[1]= codesplitStep2[1][:len(codesplitStep2[1])-1]
+	fmt.Println(list_structure.Search(codesplitStep2[0], codesplitStep2[1],ListMap))
 }
-
+//list.sort(list-name)
 func Sort(code string,ListMap *map[string][]interface{})  {
-	list_structure.Sort(code[10:len(code)-1],ListMap)
+	list_structure.Sort(syntax.One(code),ListMap)
 }
