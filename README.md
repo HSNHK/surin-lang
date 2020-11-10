@@ -99,6 +99,8 @@ list.search(list-name,value) # search method for Returns its number if available
 
 //bubble sort 
 list.sort(list-name) # list sort item A-z 0-9 and etc
+
+list.del(list-name) # delete list
 ``` 
 ## MakeFile
 ```
