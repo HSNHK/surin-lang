@@ -2,8 +2,12 @@ package syntax
 
 import "strings"
 
+func trim(code *string){
+	strings.TrimSpace(*code)
+}
 //function(input)
 func One(code string)string{
+	trim(&code)
 	//function([input)]
 	codesplit:=strings.Split(code,"(")
 	//function([input])
@@ -11,6 +15,7 @@ func One(code string)string{
 }
 //function(input-x,input-y)
 func Tow(code string)(string,string){
+	trim(&code)
 	//function([input-x,input-y)]
 	codesplit1 :=strings.Split(code,"(")
 	//function(input-x[,]input-y)
@@ -20,6 +25,7 @@ func Tow(code string)(string,string){
 }
 //function(input-x,input-y,input-z)
 func Three(code string)(string,string,string){
+	trim(&code)
 	//function([input-x,input-y,input-z)]
 	codesplit1 :=strings.Split(code,"(")
 	//function(input-x[,]input-y[,]input-z)
@@ -29,6 +35,7 @@ func Three(code string)(string,string,string){
 }
 //function(type:Initialise)
 func Initialise(code string)(string,string){
+	trim(&code)
 	//function([type:Initialise)]
 	codesplit1 :=strings.Split(code,"(")
 	//function(type[:]Initialise)

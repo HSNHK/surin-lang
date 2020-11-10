@@ -45,3 +45,8 @@ func Search(code string,ListMap *map[string][]interface{})  {
 func Sort(code string,ListMap *map[string][]interface{})  {
 	list_structure.Sort(syntax.One(code),ListMap)
 }
+//delete list
+//list.delete(list-name)
+func Delete(code string,ListMap *map[string][]interface{}){
+	list_structure.Delete(syntax.One(code),ListMap)
+}

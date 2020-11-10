@@ -80,6 +80,9 @@ var(
 		//sort list
 		//list.sort(list-name)
 		"list-sort":"^[(list.sort)|(\\slist.sort)|(list.sort\\s]+[(]+[a-z]+[)]$",
+		//delete list
+		//list.delete(list-name)
+		"list-delete":"^[(list.del)|(\\slist.del)|(list.del\\s]+[(]+[a-z]+[)]$",
 	}
 )
 //check match pattern with syntax

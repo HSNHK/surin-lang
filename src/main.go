@@ -18,6 +18,12 @@ var registers =map[string][]interface{}{
 var list =map[string] []interface{}{
 	"name":{1,2,3,4,5,6},
 }
+//list code
+//[code-line-1,code-line-2,...]
+var CodeList=map[int]string{
+	//1:"print(3)",
+}
+var head =0
 //constant syntax
 var command=map[string]interface{}{
 		"exit":"enter exit() for close in interpreter",
@@ -89,6 +95,8 @@ func main(){
 				//&registers=send registers address or send reference
 			}else{
 				parser.Core(userCommand,&registers,&list)
+				CodeList[head]=userCommand
+				head++
 			}
 		}
 	}

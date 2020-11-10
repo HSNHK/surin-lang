@@ -7,8 +7,8 @@ import (
 
 //check exist list with name
 func ExistList(listName string,ListMap *map[string][]interface{}) bool{
-	var list map[string][]interface{}=*ListMap
-	for key:=range list{
+	//var list map[string][]interface{}=*ListMap
+	for key:=range *ListMap{
 		if listName==key{
 			return true
 		}
@@ -18,7 +18,6 @@ func ExistList(listName string,ListMap *map[string][]interface{}) bool{
 //show all item
 //list(name)
 func List(name string,ListMap *map[string][]interface{}) string {
-
 	var list map[string][]interface{}=*ListMap
 	//Sort(name,&list)
 	//check exist list
@@ -46,5 +45,14 @@ func List(name string,ListMap *map[string][]interface{}) string {
 		//not found list
 		interpreter.Log("not fund list : "+name,"Show list",2)
 		return "-1"
+	}
+}
+//delete list
+//list.del(list-name)
+func Delete(name string,ListMap *map[string][]interface{}){
+	if ExistList(name,ListMap){
+		delete(*ListMap,name)
+	}else {
+		interpreter.Log("not found list : "+name,"delete list",2)
 	}
 }
