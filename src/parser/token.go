@@ -83,6 +83,12 @@ var(
 		//delete list
 		//list.delete(list-name)
 		"list-delete":"^[(list.del)|(\\slist.del)|(list.del\\s]+[(]+[a-z]+[)]$",
+		//label
+		//lb:name
+		"label":"[(lb)|(\\slb)|(lb\\s)]+[(]+[a-z]+[)]$",
+		//jmp
+		//jmp(label-name)
+		"jmp":"[(jmptolab)|(\\sjmptolab)|(jmptolab\\s)]+[(]+[a-z]+[)]$",
 	}
 )
 //check match pattern with syntax

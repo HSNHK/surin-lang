@@ -45,6 +45,7 @@ func main(){
 		}
 		//open file
 		fileScan :=bufio.NewScanner(file)
+		/*
 		for fileScan.Scan(){
 			//check commented
 			if fileScan.Text()[0]== '#' {
@@ -58,6 +59,17 @@ func main(){
 			}
 			//&registers=send registers address or send reference
 			parser.Core(fileScan.Text(),&registers,&list)
+		}
+		 */
+		for fileScan.Scan(){
+			if fileScan.Text()[0]== '#' {
+				continue
+			}
+			CodeList[head]=fileScan.Text()
+			head++
+		}
+		for head:=0;head<=len(CodeList);head++ {
+			parser.Core(CodeList[head], &registers, &list)
 		}
 		//file open error
 		if err:= fileScan.Err();err!=nil{

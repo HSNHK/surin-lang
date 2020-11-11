@@ -92,7 +92,9 @@ func Core(code string, register,list *map[string][]interface{}){
 		list_syntax.Sort(code,list)
 	}else if IsValid("list-delete",code) {
 		list_syntax.Delete(code,list)
-	}else{
-		fmt.Println("command fail ..!")
+	}else if IsValid("jmp",code) {
+		fmt.Println("okokokokoko")
+	} else{
+		//fmt.Println("command fail ..!")
 	}
 }
