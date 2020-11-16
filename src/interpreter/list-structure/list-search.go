@@ -52,7 +52,7 @@ func Sort(name string,ListMap *map[string][]interface{}){
 func Search(name,Value string,ListMap *map[string][]interface{})int{
 	var list map[string][]interface{}=*ListMap
 	//item index found
-	found:=0
+	found:=-1
 	//start list index
 	start:=0
 	//end list index
@@ -64,8 +64,14 @@ func Search(name,Value string,ListMap *map[string][]interface{})int{
 			end++
 		}
 	}
+
 	//fmt.Println("len : ",end)
 	for  start<=end{
+		//Convert person to couple
+		//Divisible by being two
+		if end%2!=0{
+			end++
+		}
 		//list size / 2
 		mid:=(start+end)/2
 		//compare value with list[len/2]

@@ -39,6 +39,8 @@ func Search(code string,ListMap *map[string][]interface{})  {
 	codesplitStep2 :=strings.Split(codesplitStep1[1],",")
 	//remove list.search(list-name,value[)]
 	codesplitStep2[1]= codesplitStep2[1][:len(codesplitStep2[1])-1]
+	fmt.Println(codesplitStep2[0])
+	fmt.Println(codesplitStep2[1])
 	fmt.Println(list_structure.Search(codesplitStep2[0], codesplitStep2[1],ListMap))
 }
 //list.sort(list-name)

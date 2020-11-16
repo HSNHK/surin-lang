@@ -69,6 +69,12 @@ func main(){
 			head++
 		}
 		for head:=0;head<=len(CodeList);head++ {
+			for key,value:=range command{
+				if CodeList[head]==key{
+					fmt.Println(value)
+					continue
+				}
+			}
 			parser.Core(CodeList[head], &registers, &list)
 		}
 		//file open error
