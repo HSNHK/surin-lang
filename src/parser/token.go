@@ -61,47 +61,52 @@ var(
 		//if style1
 		//if(12,>=,114)?print("ok"):print("no")
 		"if_s1":"^[(if)|(\\sif)|(if\\s)]+[(]+[\\d]+[,]+[(>)|(<)|(>=)|(<=)]+[,][0-9]+[)]+[?]+[(print)]+[(]+[\"].*[\"]+[)]+[:]+[(print)]+[(]+[\"].*[\"]+[)]$",
-		//list
-		//list(name:size)
-		"list":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[:]+[0-9]+[)]$",
-		//list get value
-		//list(name,index)
-		"list-get":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[,][0-9]+[)]$",
-		//list push
-		//list(name,index,value)
-		"list-push":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[,][0-9]+[,]+.*[)]$",
-		//list show all item
-		//list(name)
-		"show-all-list-item":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[)]$",
-		//method
-		//search to list
-		//list.index(list-name,value)
-		"list-search":"^[(list.search)|(\\slist.search)|(list.search\\s]+[(]+[a-z]+[,]+.*[)]$",
-		//sort list
-		//list.sort(list-name)
-		"list-sort":"^[(list.sort)|(\\slist.sort)|(list.sort\\s]+[(]+[a-z]+[)]$",
-		//delete list
-		//list.delete(list-name)
-		"list-delete":"^[(list.del)|(\\slist.del)|(list.del\\s]+[(]+[a-z]+[)]$",
 		//label
 		//lb:name
 		"label":"[(lb)|(\\slb)|(lb\\s)]+[(]+[a-z]+[)]$",
 		//jmp
 		//jmp(label-name)
-		"jmp":"[(jmptolab)|(\\sjmptolab)|(jmptolab\\s)]+[(]+[a-z]+[)]$",
+		//"jmp":"[(jmptolab)|(\\sjmptolab)|(jmptolab\\s)]+[(]+[a-z]+[)]$",
 	}
 )
+
+var List =map[string]string{
+	//list
+	//list(name:size)
+	"list":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[:]+[0-9]+[)]$",
+	//list get value
+	//list(name,index)
+	"list-get":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[,][0-9]+[)]$",
+	//list push
+	//list(name,index,value)
+	"list-push":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[,][0-9]+[,]+.*[)]$",
+	//list show all item
+	//list(name)
+	"show-all-list-item":"^[(list)|(\\slist)|(list\\s)]+[(]+[a-z]+[)]$",
+	//method
+	//search to list
+	//list.index(list-name,value)
+	"list-search":"^[(list.search)|(\\slist.search)|(list.search\\s]+[(]+[a-z]+[,]+.*[)]$",
+	//sort list
+	//list.sort(list-name)
+	"list-sort":"^[(list.sort)|(\\slist.sort)|(list.sort\\s]+[(]+[a-z]+[)]$",
+	//delete list
+	//list.delete(list-name)
+	"list-delete":"^[(list.del)|(\\slist.del)|(list.del\\s]+[(]+[a-z]+[)]$",
+}
+
+
 //check match pattern with syntax
-func IsValid(PTN,syntax string) bool {
-	re, _ := regexp.MatchString(pattern[PTN], syntax)
+func IsValid(NameSpace,PTN,syntax string) bool {
+	re, _ := regexp.MatchString(GetListPattern(NameSpace)[PTN], syntax)
 	if re == true {
 		return true
 	}
 	return false
 }
-//check exist pattern
-func IsExistPattern(PTN string)bool{
-	for i:=range pattern{
+//check exist pattern to namespace
+func IsExistPattern(NameSpace,PTN string)bool{
+	for i:=range GetListPattern(NameSpace){
 		if i==PTN{
 			return true
 		}
@@ -109,13 +114,13 @@ func IsExistPattern(PTN string)bool{
 	return false
 }
 //return the number of all patterns
-func PatternLen()int{
-	return  len(pattern)
+func PatternLen(NameSpace string)int{
+	return  len(GetListPattern(NameSpace))
 }
 //return all pattern key
-func AllPatternKey()string{
+func AllPatternKey(NameSpace string)string{
 	var all string
-	for key:=range pattern{
+	for key:=range GetListPattern(NameSpace){
 		all=all+"\n"+key
 	}
 	return all

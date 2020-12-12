@@ -2,7 +2,6 @@ package parser
 
 import (
 	"./syntax"
-	"./syntax/list-syntax"
 	"./syntax/register-syntax"
 	"fmt"
 )
@@ -10,57 +9,77 @@ import (
 const STRING ="str"
 const INT ="int"
 func Core(code string, register,list *map[string][]interface{}){
+
+	if IsValidNameSpace("List",code){
+		ListAnalyzer(code,list)
 	//print("hello")
-	if IsValid("print",code){
+	}else if IsValid("Global","print",code){
 		syntax.Print(code,STRING)
+
 	//print(1234)
-	}else if IsValid("print_int",code){
+	}else if IsValid("Global","print_int",code){
 		syntax.Print(code,INT)
+
 	//logic(12,>,11)
-	}else if IsValid("logic",code){
+	}else if IsValid("Global","logic",code){
 		syntax.Logic(code)
+
 	//math(2,**,2)
-	}else if IsValid("math",code){
+	}else if IsValid("Global","math",code){
 		syntax.Math(code)
+
 	//streql("hello","god")
-	}else if IsValid("streql",code){
+	}else if IsValid("Global","streql",code){
 		syntax.StrEql(code)
+
 	//len("hello..")
-	}else if IsValid("len",code){
+	}else if IsValid("Global","len",code){
 		syntax.Len(code)
+
 	//len("hello","h")
-	}else if IsValid("find",code){
+	}else if IsValid("Global","find",code){
 		syntax.Find(code)
+
 	//var("variable-name",str)
-	}else if IsValid("var_str",code) {
+	}else if IsValid("Global","var_str",code) {
 		register_syntax.Var(code,STRING, register)
+
 	//var("variable-name",int)
-	}else if IsValid("var_int",code){
+	}else if IsValid("Global","var_int",code){
 		register_syntax.Var(code,INT, register)
+
 	//push("variable-name","hello")
-	} else if IsValid("push_str",code){
+	} else if IsValid("Global","push_str",code){
 		register_syntax.Push(code,STRING, register)
+
 	//push("variable-name",1234)
-	}else if IsValid("push_int",code){
+	}else if IsValid("Global","push_int",code){
 		register_syntax.Push(code,INT, register)
+
 	//pop(variable-name)
-	} else if IsValid("pop",code){
+	} else if IsValid("Global","pop",code){
 		register_syntax.Pop(code, register)
+
 	//rm(variable-name)
-	}else if IsValid("rm",code){
+	}else if IsValid("Global","rm",code){
 		register_syntax.Rm(code, register)
+
 	//add("variable-name",1234)
-	}else if IsValid("add_int",code){
+	}else if IsValid("Global","add_int",code){
 		register_syntax.Add(code,INT, register)
+
 	//add("variable-name","hello")
-	}else if IsValid("add_str",code){
+	}else if IsValid("Global","add_str",code){
 		register_syntax.Add(code,STRING, register)
+
 	//type(variable-name)
-	}else if IsValid("type",code){
+	}else if IsValid("Global","type",code){
 		register_syntax.Stype(code, register)
+
 	//id(variable-name)
-	}else if IsValid("id",code){
+	}else if IsValid("Global","id",code){
 		register_syntax.Id(code, register)
+
 	//ivar(variable-name)
 
 	/*
@@ -69,29 +88,12 @@ func Core(code string, register,list *map[string][]interface{}){
 	 */
 
 	//if(1,>,2)?print("yes"):print("no")
-	}else if IsValid("if_s1",code){
+	}else if IsValid("Global","if_s1",code){
 		syntax.IF(code)
+
 	//cmp(variable-name-1,variable-name-2)
-	}else if IsValid("cmp",code){
+	}else if IsValid("Global","cmp",code){
 		register_syntax.Cmp(code, register)
-	//list(name:size)
-	}else if IsValid("list",code){
-		list_syntax.List(code,list)
-	//list(name,index,value)
-	}else if IsValid("list-push",code){
-		list_syntax.ListPush(code,list)
-	//list(name,index)
-	}else if IsValid("list-get",code) {
-		list_syntax.ListGet(code,list)
-	//list(list-name)
-	}else if IsValid("show-all-list-item",code) {
-		list_syntax.ShowList(code,list)
-	}else if IsValid("list-search",code) {
-		list_syntax.Search(code,list)
-	}else if IsValid("list-sort",code){
-		list_syntax.Sort(code,list)
-	}else if IsValid("list-delete",code) {
-		list_syntax.Delete(code,list)
 	}else{
 		fmt.Println("command fail ..!")
 	}
