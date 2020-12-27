@@ -2,16 +2,17 @@ package parser
 
 import (
 	"./syntax"
-	"./syntax/register-syntax"
+	"./syntax/Variable-syntax"
 	"fmt"
 )
 //value type
 const STRING ="str"
 const INT ="int"
-func Core(code string, register,list *map[string][]interface{}){
-
+func MainParser(code string, VariablesStorageSpace, ListsStorageSpace *map[string][]interface{}){
+	//Check the code namespace to navigate correctly to your class
 	if IsValidNameSpace("List",code){
-		ListAnalyzer(code,list)
+		ListAnalyzer(code, ListsStorageSpace)
+
 	//print("hello")
 	}else if IsValid("Global","print",code){
 		syntax.Print(code,STRING)
@@ -42,50 +43,43 @@ func Core(code string, register,list *map[string][]interface{}){
 
 	//var("variable-name",str)
 	}else if IsValid("Global","var_str",code) {
-		register_syntax.Var(code,STRING, register)
+		Variable_syntax.Var(code,STRING, VariablesStorageSpace)
 
 	//var("variable-name",int)
 	}else if IsValid("Global","var_int",code){
-		register_syntax.Var(code,INT, register)
+		Variable_syntax.Var(code,INT, VariablesStorageSpace)
 
 	//push("variable-name","hello")
 	} else if IsValid("Global","push_str",code){
-		register_syntax.Push(code,STRING, register)
+		Variable_syntax.Push(code,STRING, VariablesStorageSpace)
 
 	//push("variable-name",1234)
 	}else if IsValid("Global","push_int",code){
-		register_syntax.Push(code,INT, register)
+		Variable_syntax.Push(code,INT, VariablesStorageSpace)
 
 	//pop(variable-name)
 	} else if IsValid("Global","pop",code){
-		register_syntax.Pop(code, register)
+		Variable_syntax.Pop(code, VariablesStorageSpace)
 
 	//rm(variable-name)
 	}else if IsValid("Global","rm",code){
-		register_syntax.Rm(code, register)
+		Variable_syntax.Rm(code, VariablesStorageSpace)
 
 	//add("variable-name",1234)
 	}else if IsValid("Global","add_int",code){
-		register_syntax.Add(code,INT, register)
+		Variable_syntax.Add(code,INT, VariablesStorageSpace)
 
 	//add("variable-name","hello")
 	}else if IsValid("Global","add_str",code){
-		register_syntax.Add(code,STRING, register)
+		Variable_syntax.Add(code,STRING, VariablesStorageSpace)
 
 	//type(variable-name)
 	}else if IsValid("Global","type",code){
-		register_syntax.Stype(code, register)
+		Variable_syntax.Stype(code, VariablesStorageSpace)
 
 	//id(variable-name)
 	}else if IsValid("Global","id",code){
-		register_syntax.Id(code, register)
-
-	//ivar(variable-name)
-
-	/*
-	}else if IsValid("ivar",code){
-		return syntax.Ivar(code,register)
-	 */
+		Variable_syntax.Id(code, VariablesStorageSpace)
 
 	//if(1,>,2)?print("yes"):print("no")
 	}else if IsValid("Global","if_s1",code){
@@ -93,7 +87,7 @@ func Core(code string, register,list *map[string][]interface{}){
 
 	//cmp(variable-name-1,variable-name-2)
 	}else if IsValid("Global","cmp",code){
-		register_syntax.Cmp(code, register)
+		Variable_syntax.Cmp(code, VariablesStorageSpace)
 	}else{
 		fmt.Println("command fail ..!")
 	}

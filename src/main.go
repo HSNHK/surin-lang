@@ -8,82 +8,93 @@ import (
 	"log"
 	"os"
 )
-//registers map
-//[variable-name]:[variable-type(int,str),variable-value,ID]
-var registers =map[string][]interface{}{
+
+//VariablesStorageSpace map
+//User-generated variables are stored in this map
+//In such a way that the name of the map key variable
+//and the type, value and value identifier of this map
+//id is a random identifier
+//and represents the variable identifier in memory
+var VariablesStorageSpace =map[string][]interface{}{
+	//[variable-name]:[variable-type(int,str),variable-value,ID]
 	"first":{"type","value","id"},
 }
+
 //list map
-//[list-name]:[item]
-var list =map[string] []interface{}{
+//Arrays defined by the programmer are stored here
+//This is a list of objects
+//and different types of data can be stored in one list
+var ListsStorageSpace =map[string] []interface{}{
+	//[list-name]:[item]
 	"name":{1,2,3,4,5,6},
 }
 //list code
+//The code fetched in the name.sur file is stored here
+//The reason for this is the ability to move lines of code
+//Suppose we implement the jmp operation in this interpreter language.
+//To do this, we need to have the previous line numbers so
+//that we can move between the lines.
 //[code-line-1,code-line-2,...]
-var CodeList=map[int]string{
+var SourceCodeList =map[int]string{
 	//1:"print(3)",
 }
-var head =0
+//Head is the line pointer and
+//the value of this variable represents the current line number
+var Head =0
 //constant syntax
-var command=map[string]interface{}{
+//Fixed commands in the interpreter can be added to this map
+var ConstantCommand=map[string]interface{}{
+		//Help to exit the interpreter
 		"exit":"enter exit() for close in interpreter",
+		//hello :)
+		//This command is also available in Lisp
 		"hello":"hello programmer welcome to surin interpreter",
+		//help :)
 		"help":"pales view README",
 		"true":"true",
 		"false":"false",
+		//get system time
 		"time":interpreter.Time(),
+		//get system information
 		"info":interpreter.Info(),
 }
 
 func main(){
-	input:=os.Args
-	//check input = surin.exe file-path
-	if len(input)>1{
-		file,err:=os.Open(input[1])
+	VariableArguments :=os.Args
+	//Check the interpreter VariableArguments
+	//check VariableArguments surin file-path
+	if len(VariableArguments)>1{
+		file,err:=os.Open(VariableArguments[1])
 		if err!=nil{
 			log.Fatal(fmt.Sprintf("[%s]"," not open source code"))
 		}
 		//open file
-		fileScan :=bufio.NewScanner(file)
-		/*
-		for fileScan.Scan(){
-			//check commented
-			if fileScan.Text()[0]== '#' {
+		SourceCodeScan :=bufio.NewScanner(file)
+		for SourceCodeScan.Scan(){
+			//Check that this line of code is in comment mode,
+			//or if it is, this line will not execute.
+			if SourceCodeScan.Text()[0]== '#' {
 				continue
 			}
-			for key,value:=range command{
-				if fileScan.Text()==key{
+			SourceCodeList[Head]= SourceCodeScan.Text()
+			Head++
+		}
+		for head:=0;head<=len(SourceCodeList);head++ {
+			for key,value:=range ConstantCommand{
+				if SourceCodeList[head]==key{
 					fmt.Println(value)
 					continue
 				}
 			}
-			//&registers=send registers address or send reference
-			parser.Core(fileScan.Text(),&registers,&list)
-		}
-		 */
-		for fileScan.Scan(){
-			if fileScan.Text()[0]== '#' {
-				continue
-			}
-			CodeList[head]=fileScan.Text()
-			head++
-		}
-		for head:=0;head<=len(CodeList);head++ {
-			for key,value:=range command{
-				if CodeList[head]==key{
-					fmt.Println(value)
-					continue
-				}
-			}
-			parser.Core(CodeList[head], &registers, &list)
+			parser.MainParser(SourceCodeList[head], &VariablesStorageSpace, &ListsStorageSpace)
 		}
 		//file open error
-		if err:= fileScan.Err();err!=nil{
+		if err:= SourceCodeScan.Err();err!=nil{
 			log.Fatal(fmt.Sprintf("[%s]",err))
 		}
 
 	}else {
-
+		//interpreter mode
 		//baner
 		fmt.Println("   _____            _          __")
 		fmt.Println("  / ___/__  _______(_)___     / /   ____ _____  ____ _")
@@ -92,29 +103,26 @@ func main(){
 		fmt.Println("/____/\\__,_/_/  /_/_/ /_/  /_____/\\__,_/_/ /_/\\__, /")
 		fmt.Println("                                             /____/")
 		fmt.Println("Hello Welcome to surin interpreter\n")
-
 		//interpreter shell mode
-		var userCommand string
+		var UserCommand string
 		for true {
-
 			fmt.Print(">>~#>")
-			fmt.Scan(&userCommand)
-
-			for key,value:=range command{
-				if userCommand==key{
+			fmt.Scan(&UserCommand)
+			for key,value:=range ConstantCommand{
+				if UserCommand ==key{
 					fmt.Println(value)
 					break
 				}
 			}
-			if userCommand =="\n" || userCommand==" " {
+			if UserCommand =="\n" || UserCommand ==" " {
 				continue
-			} else if userCommand=="exit()"{
+			} else if UserCommand =="exit()"{
 				break
-				//&registers=send registers address or send reference
+				//&VariablesStorageSpace=send VariablesStorageSpace address or send reference
 			}else{
-				parser.Core(userCommand,&registers,&list)
-				CodeList[head]=userCommand
-				head++
+				parser.MainParser(UserCommand,&VariablesStorageSpace,&ListsStorageSpace)
+				SourceCodeList[Head]= UserCommand
+				Head++
 			}
 		}
 	}

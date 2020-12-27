@@ -1,4 +1,4 @@
-package register_syntax
+package Variable_syntax
 
 import (
 	"../../../interpreter"
