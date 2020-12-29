@@ -2,10 +2,11 @@ package parser
 
 import (
 	"./syntax/list-syntax"
+	"../interpreter"
 )
 
 
-func ListAnalyzer(code string,list *map[string][]interface{}) {
+func ListAnalyzer(code string,list *map[string][]interface{},line int) {
 	//list(name:size)
 	if IsValid("List","list", code) {
 		list_syntax.List(code, list)
@@ -33,5 +34,7 @@ func ListAnalyzer(code string,list *map[string][]interface{}) {
 		//list(list-name)
 	} else if IsValid("List","list-delete", code) {
 		list_syntax.Delete(code, list)
+	}else {
+		interpreter.NotFound(code,line)
 	}
 }

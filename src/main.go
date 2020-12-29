@@ -79,14 +79,12 @@ func main(){
 			SourceCodeList[Head]= SourceCodeScan.Text()
 			Head++
 		}
-		for head:=0;head<=len(SourceCodeList);head++ {
-			for key,value:=range ConstantCommand{
-				if SourceCodeList[head]==key{
-					fmt.Println(value)
-					continue
-				}
+		for head:=0;head<len(SourceCodeList);head++ {
+			if value,ok:=ConstantCommand[SourceCodeList[head]];ok{
+				fmt.Println(value)
+				continue
 			}
-			parser.MainParser(SourceCodeList[head], &VariablesStorageSpace, &ListsStorageSpace)
+			parser.MainParser(SourceCodeList[head], &VariablesStorageSpace, &ListsStorageSpace,head)
 		}
 		//file open error
 		if err:= SourceCodeScan.Err();err!=nil{
@@ -120,7 +118,7 @@ func main(){
 				break
 				//&VariablesStorageSpace=send VariablesStorageSpace address or send reference
 			}else{
-				parser.MainParser(UserCommand,&VariablesStorageSpace,&ListsStorageSpace)
+				parser.MainParser(UserCommand,&VariablesStorageSpace,&ListsStorageSpace,0)
 				SourceCodeList[Head]= UserCommand
 				Head++
 			}
