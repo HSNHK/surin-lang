@@ -22,3 +22,12 @@ func Log(log,location string,level int)  {
 		fmt.Println(fmt.Sprintf("[%s]|%s|=>|%s|=> %s",errorFlag,Time(),location,log))
 	}
 }
+//not found syntax
+func NotFound(code string,line int){
+	fmt.Println(
+		fmt.Sprintf("+=+=+=+=+=+=+=+=+=+=+=+=+=+=+\n"+
+				"|*| syntax not found\n" +
+				"|*| line :[%d]\n"+
+				"|*| code syntax :[%s]\n"+
+		"+=+=+=+=+=+=+=+=+=+=+=+=+=+=+",line,code))
+}
