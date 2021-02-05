@@ -14,14 +14,14 @@ const INT ="int"
 func Print(code,_type string){
 	if _type==STRING{
 		//print string value
-		interpreter.Print(code[7:len(code)-2], "str")
+		interpreter.Print(One(code), "str")
 	}else if _type==INT{
 		//print int value
-		interpreter.Print(code[7:len(code)-2], "int")
+		interpreter.Print(One(code), "int")
 	}
 }
 //len syntax
 func Len(code string)  {
 	//len(["hello"])
-	fmt.Println(interpreter.DataLen(strings.TrimSpace(code[5:len(code)-2])))
+	fmt.Println(interpreter.DataLen(strings.TrimSpace(One(code))))
 }

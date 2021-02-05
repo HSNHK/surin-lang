@@ -8,9 +8,9 @@ import (
 )
 //ivar(name)
 func  Ivar(code string, register *map[string][]interface{})  interface{}{
-	//ivar([name])
-	if register_structure.ExistVariable(code[4:len(code)-1], register) {
-		return register_structure.GetValue(code[4:len(code)-1], register)
+	VariableName:=One(code)
+	if register_structure.ExistVariable(VariableName, register) {
+		return register_structure.GetValue(VariableName, register)
 	}else{
 		interpreter.Log("not found variable","ivar function",2)
 		return nil

@@ -3,22 +3,15 @@ package list_syntax
 import (
 	"../../../interpreter"
 	"../../../interpreter/list-structure"
+	"../../syntax"
 	"fmt"
 	"strconv"
-	"strings"
 )
-
 //list get value syntax
-//list(name,index)
 func ListGet(code string,ListMap *map[string][]interface{}){
-	//list(name[,]index)
-	codesplit:=strings.Split(code,",")
-	//list(name,[index])
-	//convert string to int
-	index,err:=strconv.Atoi(codesplit[1][:len(codesplit[1])-1])
-	if err==nil{
-		//list([name],[index])
-		fmt.Println(list_structure.ListGet(codesplit[0][5:],index,ListMap))
+	name,index:=syntax.Tow(code)
+	if index,err:=strconv.Atoi(index);err==nil{
+		fmt.Println(list_structure.ListGet(name,index,ListMap))
 	}else{
 		interpreter.Log("index error","list get value syntax",2)
 	}

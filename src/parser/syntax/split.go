@@ -1,6 +1,8 @@
 package syntax
 
-import "strings"
+import (
+	"strings"
+)
 
 func trim(code *string){
 	strings.TrimSpace(*code)
@@ -11,7 +13,10 @@ func One(code string)string{
 	//function([input)]
 	codesplit:=strings.Split(code,"(")
 	//function([input])
-	return codesplit[1][:len(codesplit)-1]
+	if codesplit[1][:1]=="\""{
+		return codesplit[1][1:len(codesplit[1])-2]
+	}
+	return codesplit[1][:len(codesplit[1])-1]
 }
 //function(input-x,input-y)
 func Tow(code string)(string,string){
@@ -21,6 +26,9 @@ func Tow(code string)(string,string){
 	//function(input-x[,]input-y)
 	codesplit2 :=strings.Split(codesplit1[1],",")
 	//function([input-x],[input-y])
+	if codesplit2[0][:1]=="\""{
+		return codesplit2[0][1:len(codesplit2[0])-1], codesplit2[1][:len(codesplit2[1])-1]
+	}
 	return codesplit2[0], codesplit2[1][:len(codesplit2[1])-1]
 }
 //function(input-x,input-y,input-z)
@@ -31,7 +39,7 @@ func Three(code string)(string,string,string){
 	//function(input-x[,]input-y[,]input-z)
 	codesplit2 :=strings.Split(codesplit1[1],",")
 	//function([input-x],[input-y],[input-z])
-	return codesplit2[0],codesplit2[1],codesplit2[2][:len(codesplit2)-1]
+	return codesplit2[0],codesplit2[1],codesplit2[2][:len(codesplit2[2])-1]
 }
 //function(type:Initialise)
 func Initialise(code string)(string,string){

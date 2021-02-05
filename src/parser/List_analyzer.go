@@ -1,11 +1,10 @@
 package parser
 
 import (
-	"./syntax/list-syntax"
 	"../interpreter"
+	"./syntax/list-syntax"
 )
-
-
+//list analyzer function
 func ListAnalyzer(code string,list *map[string][]interface{},line int) {
 	//list(name:size)
 	if IsValid("List","list", code) {

@@ -1,8 +1,6 @@
 package list_structure
 
 import "fmt"
-
-
 //bubble sort function
 //https://en.wikipedia.org/wiki/Bubble_sort
 func Sort(name string,ListMap *map[string][]interface{}){
@@ -64,8 +62,6 @@ func Search(name,Value string,ListMap *map[string][]interface{})int{
 			end++
 		}
 	}
-
-	//fmt.Println("len : ",end)
 	for  start<=end{
 		//Convert person to couple
 		//Divisible by being two

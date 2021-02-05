@@ -1,16 +1,15 @@
-package register_syntax
+package Variable_syntax
 
 import (
 	"../../../interpreter/register-structure"
+	"../../syntax"
 )
-
 //create variable syntax
-func  Var(code,_type string, register *map[string][]interface{})  {
+func Var(code,_type string, register *map[string][]interface{})  {
+	VariableName:=syntax.One(code)
 	if _type==STRING{
-		//var(["variable-name"],[str])
-		register_structure.CreateVariable(code[4:len(code)-5],"str", register)
+		register_structure.CreateVariable(VariableName,"str", register)
 	}else if _type==INT{
-		//var(["variable-name"],[int])
-		register_structure.CreateVariable(code[4:len(code)-5],"int", register)
+		register_structure.CreateVariable(VariableName,"int", register)
 	}
 }
