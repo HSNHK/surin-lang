@@ -1,4 +1,4 @@
-## Surin Lang
+## 💪Surin Lang
 
 <img src="https://github.com/HSNHK/surin-lang/blob/master/resources/Capture.JPG">
 <b>Surin programming language</b>
@@ -7,7 +7,7 @@ surin is an interpreter language written in golang or python
 <br>
 This means that its structure can be implemented in other languages.<br>
 In practice, this language is just a structure and more work has been done on its structure
-### instruction
+### 🤨instruction
 ```
 
 code --> analyze code --> check pattern --> syntax function --> interpreter functions
@@ -26,7 +26,7 @@ print("Hello world")
 ^[(print)|(\sprint)|(print\s)]+[(]+["].*["]+[)]$
 
 ```
-## How to use it?
+## 👉How to use it?
 
 ```
 
@@ -37,7 +37,7 @@ or
 >>~#> code...
 
 ```
-## syntax
+## 👍syntax
 
 ```
 [*]General functions
@@ -117,8 +117,3 @@ make compile-all
 ## Documents
 
 All documentation in the folder documentation
-
-## Link
-https://github.com/HSNHK/surin-lang
-<br>
-https://github.com/HSNHK/
