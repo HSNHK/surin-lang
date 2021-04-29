@@ -51,7 +51,7 @@ var(
 		"cmp":"^[(cmp)|(\\scmp)|(cmp\\s)]+[(]+[a-z]+[\\,]+[a-z]+[)]$",
 		//show variable type
 		//type(variable-name)
-		"type":"^[(type)|(\\stype)|(type\\s)]+[(]+[a-z]+[)]$",
+		"var_type":"^[(type)|(\\stype)|(type\\s)]+[(]+[a-z]+[)]$",
 		//show variable id
 		//id(variable-name)
 		"id":"^[(id)|(\\sid)|(id\\s)]+[(]+[a-z]+[)]$",
@@ -99,23 +99,21 @@ var List =map[string]string{
 //check match pattern with syntax
 func IsValid(NameSpace,PTN,syntax string) bool {
 	re, _ := regexp.MatchString(GetListPattern(NameSpace)[PTN], syntax)
-	if re == true {
+	if re {
 		return true
 	}
 	return false
 }
 //check exist pattern to namespace
 func IsExistPattern(NameSpace,PTN string)bool{
-	for i:=range GetListPattern(NameSpace){
-		if i==PTN{
-			return true
-		}
+	if _,ok:=GetListPattern(NameSpace)[PTN];ok{
+		return true
 	}
 	return false
 }
 //return the number of all patterns
 func PatternLen(NameSpace string)int{
-	return  len(GetListPattern(NameSpace))
+	return len(GetListPattern(NameSpace))
 }
 //return all pattern key
 func AllPatternKey(NameSpace string)string{

@@ -1,10 +1,9 @@
 package parser
 
 import (
+	"../interpreter"
 	"./syntax"
 	"./syntax/Variable-syntax"
-	"../interpreter"
-	"fmt"
 )
 
 //global syntax
@@ -71,7 +70,6 @@ func GlobalAnalyzer(code string,VariablesStorageSpace *map[string][]interface{},
 
 	//type(variable-name)
 	}else if IsValid("Global","var_type",code){
-		fmt.Println("typyyy")
 		Variable_syntax.Stype(code, VariablesStorageSpace)
 
 	//id(variable-name)

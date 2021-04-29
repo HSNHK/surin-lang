@@ -23,7 +23,7 @@ func GetListPattern(name string)map[string]string{
 }
 //check exits pattern
 func IsNameSpace(name string)bool{
-	if Namespace[name]!=nil{
+	if _,ok:=Namespace[name];ok{
 		return true
 	}
 	return false
@@ -31,7 +31,7 @@ func IsNameSpace(name string)bool{
 //check code name space valid
 func IsValidNameSpace(namespace,code string)bool{
 	re, _ := regexp.MatchString(GetNameSpacePattern(namespace), code)
-	if re == true {
+	if re {
 		return true
 	}
 	return false

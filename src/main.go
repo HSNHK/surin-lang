@@ -43,7 +43,7 @@ var SourceCodeList =map[int]string{
 var Head =0
 //constant syntax
 //Fixed commands in the interpreter can be added to this map
-var ConstantCommand=map[string]interface{}{
+var ConstantCommand=map[string]string{
 		//Help to exit the interpreter
 		"exit":"enter exit() for close in interpreter",
 		//hello :)

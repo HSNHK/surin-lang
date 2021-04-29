@@ -15,11 +15,11 @@ const(
 //log function
 func Log(log,location string,level int)  {
 	if level==info{
-		fmt.Println(fmt.Sprintf("[%s]|%s|=>|%s|=> %s",infoFlag,Time(),location,log))
+		fmt.Printf("[%s]|%s|=>|%s|=> %s\n",infoFlag,Time(),location,log)
 	}else if level==warning{
-		fmt.Println(fmt.Sprintf("[%s]|%s|=>|%s|=> %s",warningFlag,Time(),location,log))
+		fmt.Printf("[%s]|%s|=>|%s|=> %s\n",warningFlag,Time(),location,log)
 	}else if level==error {
-		fmt.Println(fmt.Sprintf("[%s]|%s|=>|%s|=> %s",errorFlag,Time(),location,log))
+		fmt.Printf("[%s]|%s|=>|%s|=> %s\n",errorFlag,Time(),location,log)
 	}
 }
 //not found syntax
