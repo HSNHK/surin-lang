@@ -1,119 +1,78 @@
-## 💪Surin Lang
+## Surin Lang [![HSNHK - surin-lang](https://img.shields.io/static/v1?label=HSNHK&message=surin-lang&color=blue&logo=github)](https://github.com/HSNHK/surin-lang)
+[![stars - surin-lang](https://img.shields.io/github/stars/HSNHK/surin-lang?style=social)](https://github.com/HSNHK/surin-lang)
+[![forks - surin-lang](https://img.shields.io/github/forks/HSNHK/surin-lang?style=social)](https://github.com/HSNHK/surin-lang)
+[![GitHub release](https://img.shields.io/github/release/HSNHK/surin-lang?include_prereleases=&sort=semver)](https://github.com/HSNHK/surin-lang/releases/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![issues - surin-lang](https://img.shields.io/github/issues/HSNHK/surin-lang)](https://github.com/HSNHK/surin-lang/issues)
 
 <img src="https://github.com/HSNHK/surin-lang/blob/master/resources/Capture.JPG">
-<b>Surin programming language</b>
+<b><i>Surin programming language</i></b>
 
-surin is an interpreter language written in golang or python
+surin is an interpreter language written in golang.
 <br>
-This means that its structure can be implemented in other languages.<br>
-In practice, this language is just a structure and more work has been done on its structure
-### 🤨instruction
+This commentator has a different structure than other commentators and is `designed for testing only`.
+
+### Functional form
 ```
 
-code --> analyze code --> check pattern --> syntax function --> interpreter functions
+[Code] --> Code analysis --> Find the pattern --> Delivery to function --> Execute the command
 
 ```
-In the code analysis section,<br>
-if it matches the specified patterns,<br>
-it will be executed<br>
 
-Regexis used to analyze the code,
-and each command has a pattern.<br>
-For example, the print command has a pattern like this:
-```
-
-print("Hello world")
-^[(print)|(\sprint)|(print\s)]+[(]+["].*["]+[)]$
-
-```
-## 👉How to use it?
+## How to use it ?
 
 ```
 
 surin file.sur
 
-or 
+* or Enter active mode *
 
 >>~#> code...
 
 ```
-## 👍syntax
-
-```
-[*]General functions
-
-print("hello") #print string
-
-print(1234)    #print int
-
-logic(3,>=,2)  #logic functions (>,<,<=,>=,==)
-
-math(2,**,4)   #math  functions (+,-,*,/,**)
-
-streql("test","test") #Equality of two disciplines math(str1,str2)
-
-len("hello programer") #string len function
-
-find("hello","he") #find string to string
-
-info 
-
-time
-
-[*]register
-
-var(variableName) #create variables
-
-push("variableName",value) #push to variable
-
-pop(variableName) #get variable value
-
-rm(variableName) #delete variable in stack
-
-add(variableName,value) #add value to variable | +=
-
-cmp(variable-1,variable-2)
-
-type(variableName) #variable type
-
-id(variableName) #variable id
-
-[*]if
-
-if(condition)?body:else
-
-if(2,>=,2)?print("yes"):print("no")
-
-[*]list
-
-list(list-name:size) #create list
-
-list(list-name,index,value) # set value for list with index
-
-list(list-name,index) #return value with index
-
-list(list-name) # print all list item [ index : value ]
-
-//binary search
-list.search(list-name,value) # search method for Returns its number if available otherwise -1
-
-//bubble sort 
-list.sort(list-name) # list sort item A-z 0-9 and etc
-
-list.del(list-name) # delete list
-``` 
+## syntax
+| Name | Description | Sample |
+|------|-------------|--------|
+| `Print` | This function is used to print `strings` and its writing form is similar to the `print function in Python` | ```print("hello")``` |
+| `Print` | This function is used to print `integer` and its writing form is similar to the `print function in Python` | ```print("hello")``` |
+| `Logic` | This function is used for `logical` operators. The first number is in the first argument and the logical operator is in the second argument, and we enter the second number in the third argument. Authorized operators (`>`,`<`,`<=`,`>=`,`==`) | ```logic(3,>=,2)``` |
+| `Math` | This function is used to perform `mathematical` calculations.  Authorized operators (`+`,`-`,`*`,`/`,`**`) | ```math(2,**,4)``` |
+| `Streql` | This function is used to check the `equality of two strings`. | ```streql("strA","strB")``` |
+| `Len` | This function is used to calculate the length of a string. | ```len("hello programer")``` |
+| `Find` | This function is used to find a string in another string. | ```find("hello","he")``` |
+| `Info` | This operator is for obtaining interpreter and system specifications. | ```info``` |
+| `Time` | This operator is used to obtain the current system time. | ```time``` |
+| `Var` | This function is used to construct a variable. | ```var(variableName)``` |
+| `Push` | This function is used to set a variable. A variable can store any kind of value. | ```push("variableName",value)``` |
+| `Pop` | This function is used to get the last value in a variable. | ```pop(variableName)``` |
+| `rm` | This function is used to delete a variable from memory. | ```rm(variableName)``` |
+| `Add` | This function is used to add a value to a variable. | ```add(variableName,value)``` |
+| `Cmp` | This function is used to check that the values ​​of two variables are equal. | ```cmp(variable-1,variable-2)``` |
+| `Type` | This function is used to `display the value of a variable`. | ```type(variableName)``` |
+| `Id` | This function is used to get the `address of a variable`. | ```id(variableName)``` |
+| `If` | This command is used to create a `condition`. | ```if(2,>=,2)?print("yes"):print("no")``` | 
+| `List` | This function is used to create a list. The name and length of the list are given to the first argument | ```list(list-name:size)``` |
+| `List` | To set an value of a list, enter the name of the list in the first argument, the index of the section in the second argument, and the desired value in the third argument. | ```list(list-name,index,value)``` |
+| `List` | To get the value of a certain part of the list, you must give the name and number of the desired part to this function. | ```list(list-name,index)``` |
+| `List` | To display all the values ​​in the list, just name it to this function. | ```list(list-name)``` |
+| `list.search` | You can use this function to search the list. `binary search` | ```list.search(list-name,value)``` |
+| `list.sort` | You can use this function to sort items in a list. `bubble sort` | ```list.sort(list-name)``` |
+| `list.del` | You can use this function to delete a list from memory. | ```list.del(list-name)``` |
 ## MakeFile
-```
-make linux or windows
 
+`make file for linux and windows`
+```
 make help
 
 make run or build
 
-make compile-windows or compile-linux or compile-freebsd
+make compile-windows
+make compile-linux
+make compile-freebsd
 
 make compile-all
 ```
-## Documents
+## License
 
-All documentation in the folder documentation
+Released under [MIT](/LICENSE) by [@HSNHK](https://github.com/HSNHK).
+**This project is no longer being developed**
